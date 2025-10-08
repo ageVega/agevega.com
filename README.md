@@ -15,12 +15,12 @@ Repositorio del sitio web personal y landing page profesional de **Alejandro Veg
 - **CI/CD:** GitHub Actions  
 
 **Arquitectura resumida:**
-
 [GitHub] --(Actions)--> [S3 bucket privado]
-↓
-[CloudFront + ACM]
-↓
-[Route 53 → agevega.com]
+                         ↓
+                  [CloudFront + ACM]
+                         ↓
+               [Route 53 → agevega.com]
+
 
 - **S3:** almacenamiento del sitio estático generado por Astro.  
 - **CloudFront:** CDN + HTTPS (certificado gestionado por ACM).  
@@ -56,68 +56,73 @@ agevega.com/
 # 1. Clonar el repositorio
 git clone https://github.com/agevega/agevega.com.git
 cd agevega.com
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Ejecutar entorno de desarrollo local
+npm run dev
+
+# 4. Generar build de producción
+npm run build
 ```
+> El contenido compilado en /dist se desplegará automáticamente en S3 mediante GitHub Actions.
 
 ---
 
 ## ⚙️ Despliegue e infraestructura (resumen)
 
-Infraestructura: definida en infra/ usando Terraform.
+La infraestructura está definida en `infra/` utilizando **Terraform**.
 
-Recursos principales:
+**Recursos principales**
+- Bucket **S3** (hosting estático, origen privado).
+- **CloudFront Distribution** (CDN + HTTPS con ACM).
+- **ACM Certificate** (validado vía DNS en Route 53).
+- Registros **DNS** en Route 53 (apuntando a CloudFront).
 
-Bucket S3 (hosting estático, origen privado).
+**CI/CD (resumen)**
+1. GitHub Actions ejecuta el build con Astro.  
+2. Los artefactos (`/dist`) se sincronizan al bucket S3 (origen privado).  
+3. Se crea una invalidación de CloudFront para propagar el contenido actualizado.  
+4. Logs y métricas: CloudFront y (si aplica) Lambda en CloudWatch; logs S3 opcionales en bucket de logging.
 
-CloudFront Distribution (CDN + HTTPS con ACM).
-
-ACM Certificate (validado vía DNS en Route 53).
-
-Registros DNS en Route 53 (apuntando a CloudFront).
-
-CI/CD:
-
-GitHub Actions ejecuta el build con Astro.
-
-Sincroniza artefactos al bucket S3.
-
-Invalida la caché de CloudFront al finalizar.
+**Notas de seguridad / configuración recomendada**
+- Usar **Origin Access Control (OAC)** para que CloudFront acceda al bucket S3 privado.  
+- Forzar HTTPS y redirigir HTTP a HTTPS en CloudFront.  
+- Configurar headers de seguridad: `Strict-Transport-Security`, `Content-Security-Policy`, `X-Content-Type-Options`, `Referrer-Policy`.  
+- Lifecycle policy para logs y objetos obsoletos en buckets S3.  
+- Gestionar secretos con **GitHub Secrets** o **AWS Secrets Manager** (nunca en el repo).  
+- Considerar **AWS WAF** con reglas gestionadas si el tráfico lo justifica.
 
 ---
 
 ## ✅ Buenas prácticas y estándares
-Código tipado con TypeScript y linting consistente (ESLint + Prettier).
 
-Accesibilidad (WCAG AA) y rendimiento como prioridades principales.
-
-Diseño responsive-first con TailwindCSS.
-
-Despliegues automatizados y versionado semántico.
-
-Configuración segura de AWS (S3 privado + OAC + HTTPS forzado + headers de seguridad).
+- Código tipado con **TypeScript** y linting consistente (**ESLint + Prettier**).  
+- Accesibilidad (**WCAG AA**) y rendimiento como prioridades.  
+- Diseño **responsive-first** con TailwindCSS.  
+- Revisiones PR, pruebas en CI y versionado semántico.  
+- Dependabot y escaneo de vulnerabilidades en CI (fail on critical/high).
 
 ---
 
 ## 🧪 Testing y calidad (placeholder)
-Se añadirán herramientas de testing (Playwright, Vitest o similar) en fases posteriores.
+
+- Pipeline CI: lint + typecheck + build.  
+- Añadir en próximas iteraciones: unit tests (Vitest), E2E (Playwright).  
+- Checks obligatorios en PR: `npm run lint`, `npm run build`, `npm test` (cuando estén disponibles).
 
 ---
 
 ## 🛣️ Roadmap inicial
- Elegir stack tecnológico definitivo.
-
- Configurar dominio y DNS en Route 53.
-
- Inicializar proyecto Astro con TypeScript + TailwindCSS.
-
- Crear infraestructura base (Terraform: S3 + CloudFront + ACM + Route 53).
-
- Configurar CI/CD con GitHub Actions.
-
- Maquetar la landing page inicial (hero, servicios, contacto).
-
- Añadir analítica y metadatos SEO.
-
- Implementar formulario de contacto (fase posterior con API Gateway + Lambda + SES).
+- [x] Elegir stack tecnológico definitivo  
+- [x] Configurar dominio y DNS en Route 53  
+- [ ] Inicializar proyecto Astro con TypeScript + TailwindCSS  
+- [ ] Crear infraestructura base (Terraform: S3 + CloudFront + ACM + Route 53)  
+- [ ] Configurar CI/CD con GitHub Actions  
+- [ ] Maquetar la landing page inicial (hero, servicios, contacto)  
+- [ ] Añadir analítica y metadatos SEO  
+- [ ] Implementar formulario de contacto (API Gateway + Lambda + SES)
 
 ---
 
