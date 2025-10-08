@@ -4,39 +4,46 @@ Repositorio del sitio web personal y landing page profesional de **Alejandro Veg
 
 ---
 
-## 🧱 Stack tecnológico (por confirmar)
-> _Pendiente de decisión final._ Aquí documentaremos el stack acordado (framework, lenguaje, estilos, build, hosting, automatización, etc.).
+## 🧱 Stack tecnológico
 
----
+**Stack seleccionado:**
+- **Framework:** [Astro](https://astro.build/)  
+- **Lenguaje:** TypeScript  
+- **Estilos:** TailwindCSS  
+- **Infraestructura:** AWS (S3 + CloudFront + ACM + Route 53)  
+- **Automatización:** Terraform (IaC)  
+- **CI/CD:** GitHub Actions  
 
-## 🔁 Combinaciones de stack propuestas
-A continuación, diez propuestas iniciales para que evaluemos juntos. Podemos mezclar componentes entre ellas si hace falta.
+**Arquitectura resumida:**
 
-1. **Astro + TypeScript + TailwindCSS + Vercel** (Static-first, rápido, DX moderna).
-2. **Next.js (App Router) + TypeScript + TailwindCSS + Vercel** (SSR/SSG híbrido, escalable).
-3. **Remix + TypeScript + TailwindCSS + Fly.io** (Routing inteligente, edge-friendly).
-4. **SvelteKit + TypeScript + TailwindCSS + Cloudflare Pages** (Performance nativa, Islands).
-5. **Nuxt 3 + TypeScript + UnoCSS + Netlify** (Universal rendering con Vue).
-6. **11ty + TypeScript tooling + PostCSS + Netlify** (Static simple, mucha flexibilidad de contenido).
-7. **Hugo + TypeScript tooling + TailwindCSS + Cloudflare Pages** (Generador ultra rápido, contenido markdown-friendly).
-8. **Gatsby + TypeScript + Emotion + AWS Amplify** (Ecosistema React con GraphQL opcional).
-9. **Qwik City + TypeScript + TailwindCSS + Vercel** (Resumability para performance extrema).
-10. **SolidStart + TypeScript + TailwindCSS + Netlify** (Reactividad granular, bundlers modernos).
+[GitHub] --(Actions)--> [S3 bucket privado]
+↓
+[CloudFront + ACM]
+↓
+[Route 53 → agevega.com]
+
+- **S3:** almacenamiento del sitio estático generado por Astro.  
+- **CloudFront:** CDN + HTTPS (certificado gestionado por ACM).  
+- **Route 53:** DNS y dominio principal.  
+- **Terraform:** despliegue y configuración completa de la infraestructura.  
+- **GitHub Actions:** build, sync a S3 y invalidación automática de CloudFront.  
+
+> El **formulario de contacto (API Gateway + Lambda + SES)** se implementará más adelante, en una **fase posterior**.
 
 ---
 
 ## 📁 Estructura prevista del repositorio
 ```
 agevega.com/
-├── src/                # Código fuente (componentes, layouts, páginas)
-│   ├── components/
-│   ├── layouts/
-│   ├── pages/
-│   └── styles/
-├── public/             # Recursos estáticos (favicons, imágenes, fuentes)
-├── infra/              # Infraestructura como código (si aplica)
-├── scripts/            # Scripts auxiliares (build, deploy, utilidades)
-├── .github/workflows/  # Pipelines CI/CD
+├── src/ # Código fuente (componentes, layouts, páginas)
+│ ├── components/
+│ ├── layouts/
+│ ├── pages/
+│ └── styles/
+├── public/ # Recursos estáticos (favicons, imágenes, fuentes)
+├── infra/ # Infraestructura como código (Terraform)
+├── scripts/ # Scripts auxiliares (build, deploy, utilidades)
+├── .github/workflows/ # Pipelines CI/CD (GitHub Actions)
 ├── package.json
 └── README.md
 ```
@@ -44,51 +51,85 @@ agevega.com/
 ---
 
 ## 🚀 Puesta en marcha (placeholder)
-> _Detallaremos estos pasos cuando cerremos el stack definitivo._
 
 ```bash
 # 1. Clonar el repositorio
 git clone https://github.com/agevega/agevega.com.git
 cd agevega.com
-
-# 2. Instalar dependencias
-# TODO: definir gestor (npm | pnpm | bun | yarn) y comando específico
-
-# 3. Ejecutar entorno de desarrollo
-# TODO
 ```
 
 ---
 
+## ⚙️ Despliegue e infraestructura (resumen)
+
+Infraestructura: definida en infra/ usando Terraform.
+
+Recursos principales:
+
+Bucket S3 (hosting estático, origen privado).
+
+CloudFront Distribution (CDN + HTTPS con ACM).
+
+ACM Certificate (validado vía DNS en Route 53).
+
+Registros DNS en Route 53 (apuntando a CloudFront).
+
+CI/CD:
+
+GitHub Actions ejecuta el build con Astro.
+
+Sincroniza artefactos al bucket S3.
+
+Invalida la caché de CloudFront al finalizar.
+
+---
+
 ## ✅ Buenas prácticas y estándares
-- Código tipado y linting consistente (herramientas por definir).
-- Accesibilidad (WCAG AA) y rendimiento web como prioridades.
-- Diseño responsive-first.
-- Automatización de despliegues y versionado semántico.
+Código tipado con TypeScript y linting consistente (ESLint + Prettier).
+
+Accesibilidad (WCAG AA) y rendimiento como prioridades principales.
+
+Diseño responsive-first con TailwindCSS.
+
+Despliegues automatizados y versionado semántico.
+
+Configuración segura de AWS (S3 privado + OAC + HTTPS forzado + headers de seguridad).
 
 ---
 
 ## 🧪 Testing y calidad (placeholder)
-> _Definiremos herramientas de testing, linters y checklists cuando cerremos el stack._
+Se añadirán herramientas de testing (Playwright, Vitest o similar) en fases posteriores.
 
 ---
 
 ## 🛣️ Roadmap inicial
-- [ ] Elegir stack tecnológico definitivo.
-- [ ] Definir identidad visual y guidelines de diseño.
-- [ ] Maquetar la landing page inicial (hero, servicios, testimonios, contacto).
-- [ ] Configurar analítica y metadatos SEO.
-- [ ] Automatizar despliegue y observabilidad básica.
+ Elegir stack tecnológico definitivo.
+
+ Configurar dominio y DNS en Route 53.
+
+ Inicializar proyecto Astro con TypeScript + TailwindCSS.
+
+ Crear infraestructura base (Terraform: S3 + CloudFront + ACM + Route 53).
+
+ Configurar CI/CD con GitHub Actions.
+
+ Maquetar la landing page inicial (hero, servicios, contacto).
+
+ Añadir analítica y metadatos SEO.
+
+ Implementar formulario de contacto (fase posterior con API Gateway + Lambda + SES).
 
 ---
 
 ## 🤝 Contribución
-Actualmente es un proyecto personal; documentaremos el proceso de contribución si se abre a colaboradores externos.
+Proyecto personal y cerrado en esta fase.
+Se documentará el proceso de contribución en caso de abrirlo a colaboradores externos.
 
 ---
 
 ## 📄 Licencia
-Pendiente de confirmación (MIT sugerida). Se añadirá archivo `LICENSE` en cuanto se defina.
+Pendiente de confirmación (MIT sugerida).
+Se añadirá archivo LICENSE cuando se defina oficialmente.
 
 ---
 
