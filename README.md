@@ -18,9 +18,9 @@ Repositorio del sitio web personal y landing page profesional de **Alejandro Veg
 ```
 [GitHub] --(Actions)--> [S3 bucket privado]
                                  ↓
-                          [CloudFront + ACM]
+                        [CloudFront + ACM]
                                  ↓
-                       [Route 53 → agevega.com]
+                        [Route 53 → agevega.com]
 ```
 
 - **S3:** almacenamiento del sitio estático generado por Astro.  
