@@ -17,10 +17,10 @@ Repositorio del sitio web personal y landing page profesional de **Alejandro Veg
 **Arquitectura resumida:**
 ```
 [GitHub] --(Actions)--> [S3 bucket privado]
-                         ↓
-                  [CloudFront + ACM]
-                         ↓
-               [Route 53 → agevega.com]
+                                 ↓
+                          [CloudFront + ACM]
+                                 ↓
+                       [Route 53 → agevega.com]
 ```
 
 - **S3:** almacenamiento del sitio estático generado por Astro.  
@@ -73,7 +73,7 @@ npm run build
 
 ## ⚙️ Despliegue e infraestructura (resumen)
 
-La infraestructura está definida en `infra/` utilizando **Terraform**.
+La infraestructura estará definida en `infra/` utilizando **Terraform**.
 
 **Recursos principales**
 - Bucket **S3** (hosting estático, origen privado).
