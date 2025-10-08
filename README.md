@@ -1,13 +1,6 @@
 # 🌐 agevega.com
 
-Repositorio del sitio web personal y landing page profesional de **Alejandro Vega**. El objetivo es construir una presencia online clara y orientada a captar clientes potenciales, con una experiencia impecable tanto en escritorio como en dispositivos móviles.
-
----
-
-## 📌 Objetivo del proyecto
-- Presentar a Alejandro Vega, sus servicios y propuesta de valor.
-- Proporcionar información de contacto y llamadas a la acción efectivas.
-- Servir como base para futuras iteraciones (blog, portfolio, recursos descargables, etc.).
+Repositorio del sitio web personal y landing page profesional de **Alejandro Vega**.
 
 ---
 
@@ -102,7 +95,7 @@ Pendiente de confirmación (MIT sugerida). Se añadirá archivo `LICENSE` en cua
 ## ✨ Autor
 **Alejandro Vega**  
 🌍 [https://agevega.com](https://agevega.com)  
-📧 contacto@agevega.com
+📧 agevega@gmail.com
 
 ---
 
