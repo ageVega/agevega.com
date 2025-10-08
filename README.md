@@ -15,12 +15,13 @@ Repositorio del sitio web personal y landing page profesional de **Alejandro Veg
 - **CI/CD:** GitHub Actions  
 
 **Arquitectura resumida:**
+```
 [GitHub] --(Actions)--> [S3 bucket privado]
                          ↓
                   [CloudFront + ACM]
                          ↓
                [Route 53 → agevega.com]
-
+```
 
 - **S3:** almacenamiento del sitio estático generado por Astro.  
 - **CloudFront:** CDN + HTTPS (certificado gestionado por ACM).  
