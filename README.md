@@ -47,19 +47,18 @@ Tecnologías principales y herramientas empleadas en el desarrollo.
 
 El proyecto se organiza en varias capas que cubren desde la interfaz de usuario hasta la automatización del despliegue y la infraestructura en la nube.
 
-### 🧱 Frontend
+### 🎨 Frontend
 Interfaz del sitio web desarrollada con **Astro** y **TailwindCSS**, generada como contenido estático optimizado en tiempo de build.  
 El resultado se publica como HTML, CSS y JS listos para distribución global mediante CDN.
 
-### ⚙️ Backend
+### 🧠 Backend
 Actualmente el sitio no incluye un backend propio, ya que todo el contenido se sirve de forma estática.  
 En futuras versiones se añadirá un **formulario de contacto** mediante **AWS API Gateway** y **Lambda (Node.js)**, manteniendo el enfoque serverless y de bajo coste.
 
-### 🔄 Automatización y Entrega
+### 🔁 Automatización y Entrega
 Los procesos de construcción, validación y despliegue se orquestan mediante **GitHub Actions**, garantizando un flujo automatizado desde el commit hasta la publicación del contenido.  
 
-### ⚙️ Despliegue e Infraestructura
-
+### ☁️ Despliegue e Infraestructura
 El sitio web se desplegará en **AWS**, utilizando **Terraform** como herramienta de infraestructura como código para definir y mantener los recursos necesarios.
 
 ### Elementos previstos
