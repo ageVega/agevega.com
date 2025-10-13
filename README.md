@@ -33,7 +33,7 @@ Desarrollado con enfoque en **optimización, rendimiento, mantenimiento sencillo
 ---
 
 ## ✨ Características
-Secciones visibles del sitio (a definir en futuras versiones).
+Secciones visibles del sitio web (a definir en futuras versiones).
 
 ---
 
