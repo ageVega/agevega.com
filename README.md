@@ -63,7 +63,23 @@ Explicación de los principales directorios y su función (`src`, `public`, `inf
 ---
 
 ## 🚀 Roadmap
-Listado de mejoras e ideas futuras.
+
+Plan de desarrollo y evolución del proyecto:
+
+- [ ] **Diseño inicial** de la landing page (estructura, secciones, paleta de colores).  
+- [ ] **Implementación del frontend** con Astro + TailwindCSS.  
+- [ ] **Configuración de dominio** `agevega.com` con AWS Route 53.  
+- [ ] **Hosting y CDN** mediante AWS S3 + CloudFront.  
+- [ ] **Certificado SSL** gestionado con AWS Certificate Manager (ACM).  
+- [ ] **Automatización del despliegue** con Terraform y GitHub Actions.  
+- [ ] **Integración de Google Analytics / Matomo** para métricas básicas.  
+- [ ] **Optimización SEO** y metadatos para buscadores.  
+- [ ] **Sección de portfolio** con proyectos destacados.  
+- [ ] **Formulario de contacto funcional**.  
+- [ ] **Optimización de rendimiento (Lighthouse ≥ 90)**.  
+- [ ] **Versión final pública y documentada.**
+
+> 🧭 El roadmap puede evolucionar conforme avance el desarrollo y se definan nuevas funcionalidades o necesidades.
 
 ---
 
