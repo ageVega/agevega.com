@@ -1,6 +1,7 @@
 # 🌐 agevega.com
 
 Repositorio del sitio web personal y landing page profesional de **Alejandro Vega**.
+
 Este proyecto tiene como objetivo centralizar mi presencia profesional online, presentar mi portfolio y facilitar el contacto a través de un sitio web moderno, optimizado y desplegado en AWS.
 
 ---
