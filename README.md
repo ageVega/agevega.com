@@ -2,7 +2,6 @@
 
 *Landing page profesional — Proyecto personal de **Alejandro Vega**.*
 
-
 ---
 
 ## 📖 Índice
