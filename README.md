@@ -33,7 +33,7 @@ Desarrollado con enfoque en **optimización, rendimiento, mantenimiento sencillo
 ---
 
 ## ✨ Características
-Secciones visibles del sitio web.
+Secciones visibles del sitio web.  
 *(A definir en futuras versiones).*
 
 ---
@@ -45,7 +45,7 @@ Tecnologías principales y herramientas empleadas en el desarrollo.
 ---
 
 ## 🏗️ Arquitectura del Proyecto
-Estructura general del sitio web (frontend, backend, infraestructura, CI/CD, etc.).
+Estructura general del sitio web (frontend, backend, infraestructura, CI/CD, etc.).  
 *(Se documentará una vez completado el diseño técnico y la infraestructura).*
 
 ---
