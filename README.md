@@ -11,13 +11,12 @@ Este proyecto tiene como objetivo centralizar mi presencia profesional online, p
 2. [Características](#-características)
 3. [Stack Tecnológico](#-stack-tecnológico)
 4. [Arquitectura del Proyecto](#-arquitectura-del-proyecto)
-5. [Despliegue e Infraestructura](#-despliegue-e-infraestructura)
-6. [Instalación y Uso Local](#-instalación-y-uso-local)
-7. [Estructura del Repositorio](#-estructura-del-repositorio)
-8. [Roadmap](#-roadmap)
-9. [Contribución](#-contribución)
-10. [Licencia](#-licencia)
-11. [Autor y Contacto](#-autor-y-contacto)
+5. [Instalación y Uso Local](#-instalación-y-uso-local)
+6. [Estructura del Repositorio](#-estructura-del-repositorio)
+7. [Roadmap](#-roadmap)
+8. [Contribución](#-contribución)
+9. [Licencia](#-licencia)
+10. [Autor y Contacto](#-autor-y-contacto)
 
 ---
 
@@ -46,6 +45,8 @@ Tecnologías principales y herramientas empleadas en el desarrollo.
 
 ## 🏗️ Arquitectura del Proyecto
 
+El proyecto se organiza en varias capas que cubren desde la interfaz de usuario hasta la automatización del despliegue y la infraestructura en la nube.
+
 ### 🧱 Frontend
 Interfaz del sitio web desarrollada con **Astro** y **TailwindCSS**, generada como contenido estático optimizado en tiempo de build.  
 El resultado se publica como HTML, CSS y JS listos para distribución global mediante CDN.
@@ -57,9 +58,7 @@ Las posibles funciones dinámicas futuras (formularios, métricas, integraciones
 ### 🔄 Automatización y Entrega
 Los procesos de construcción, validación y despliegue se orquestan mediante **GitHub Actions**, garantizando un flujo automatizado desde el commit hasta la publicación del contenido.  
 
----
-
-## ⚙️ Despliegue e Infraestructura
+### ⚙️ Despliegue e Infraestructura
 
 El sitio web se desplegará en **AWS**, utilizando **Terraform** como herramienta de infraestructura como código para definir y mantener los recursos necesarios.
 
