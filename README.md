@@ -64,7 +64,7 @@ Principales tecnologías y herramientas utilizadas en el proyecto:
 
 ---
 
-## 🏗️ Arquitectura del Proyecto
+## 🏗 Arquitectura del Proyecto
 
 Se estructura en varias capas que cubren desde la interfaz de usuario hasta la automatización del despliegue y la infraestructura en la nube.
 
