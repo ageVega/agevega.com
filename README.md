@@ -51,7 +51,18 @@ Estructura general del sitio web (frontend, backend, infraestructura, CI/CD, etc
 ---
 
 ## ⚙️ Despliegue e Infraestructura
-Información sobre hosting, CDN, dominio, certificados SSL y herramientas de automatización (Terraform, CI/CD, etc.).
+
+El sitio web se desplegará en **AWS**, utilizando **Terraform** como herramienta de infraestructura como código para definir y mantener los recursos necesarios.
+
+### Elementos previstos
+- **Hosting**: Amazon S3 (contenido estático).  
+- **CDN**: Amazon CloudFront para distribución global y caching.  
+- **Dominio**: gestionado mediante Amazon Route 53 (`agevega.com`).  
+- **Certificados SSL**: emitidos y renovados automáticamente con AWS Certificate Manager (ACM).  
+- **Infraestructura como código (IaC)**: todo el despliegue y configuración definidos en Terraform.  
+- **Automatización**: integración futura con GitHub Actions para ejecutar los despliegues.  
+
+> 🧩 La configuración detallada y los módulos de Terraform se documentarán una vez implementados.
 
 ---
 
