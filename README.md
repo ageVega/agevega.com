@@ -73,8 +73,8 @@ Puedes consultar los términos completos en el archivo `LICENSE`.
 
 ## 📬 Autor y Contacto
 
-**Alejandro Vega**  
-[🌐 agevega.com](https://agevega.com)  
-[✉️ agevega@gmail.com](mailto:agevega@gmail.com)  
-[💼 LinkedIn](https://www.linkedin.com/in/alejandro-vega94/)
+## 📬 Autor y Contacto
+
+**Alejandro Vega** — 🌐 [agevega.com](https://agevega.com) · 💼 [LinkedIn](https://www.linkedin.com/in/alejandro-vega94/) · ✉️ [agevega@gmail.com](mailto:agevega@gmail.com)
+
 
