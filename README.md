@@ -7,16 +7,16 @@ Este proyecto tiene como objetivo centralizar mi presencia profesional online, p
 ---
 
 ## 📖 Índice
-1. [Descripción](#-descripción)
-2. [Características](#-características)
-3. [Stack Tecnológico](#-stack-tecnológico)
-4. [Arquitectura del Proyecto](#-arquitectura-del-proyecto)
-5. [Instalación y Uso Local](#-instalación-y-uso-local)
-6. [Estructura del Repositorio](#-estructura-del-repositorio)
-7. [Roadmap](#-roadmap)
-8. [Contribución](#-contribución)
-9. [Licencia](#-licencia)
-10. [Autor y Contacto](#-autor-y-contacto)
+1. [Descripción](#descripción)
+2. [Características](#características)
+3. [Stack Tecnológico](#stack-tecnológico)
+4. [Arquitectura del Proyecto](#arquitectura-del-proyecto)
+5. [Instalación y Uso Local](#instalación-y-uso-local)
+6. [Estructura del Repositorio](#estructura-del-repositorio)
+7. [Roadmap](#roadmap)
+8. [Contribución](#contribución)
+9. [Licencia](#licencia)
+10. [Autor y Contacto](#autor-y-contacto)
 
 ---
 
