@@ -56,7 +56,28 @@ Información sobre hosting, CDN, dominio, certificados SSL y herramientas de aut
 ---
 
 ## 💻 Instalación y Uso Local
-Instrucciones para clonar el repositorio, instalar dependencias y ejecutar el entorno local.
+
+Guía básica para ejecutar el proyecto en entorno local.  
+*(Los pasos se completarán una vez definido el stack de desarrollo).*
+
+### Requisitos previos
+- Node.js LTS (versión a definir)
+- Gestor de paquetes (npm, pnpm o yarn)
+
+### Pasos iniciales
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/agevega/agevega.com.git
+cd agevega.com
+
+# 2. Instalar dependencias
+# (se especificará el gestor en futuras versiones)
+npm install
+
+# 3. Ejecutar en modo desarrollo
+npm run dev
+```
+> 🧩 Las instrucciones se actualizarán conforme avance el desarrollo del entorno y se definan los comandos oficiales.
 
 ---
 
