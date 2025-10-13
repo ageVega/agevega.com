@@ -33,17 +33,20 @@ Desarrollado con enfoque en **optimización, rendimiento, mantenimiento sencillo
 ---
 
 ## ✨ Características
-Secciones visibles del sitio web (a definir en futuras versiones).
+Secciones visibles del sitio web.
+*(A definir en futuras versiones).*
 
 ---
 
 ## 🧱 Stack Tecnológico
-Listado de tecnologías empleadas (a definir).
+Tecnologías principales y herramientas empleadas en el desarrollo.  
+*(A definir en futuras versiones).*
 
 ---
 
 ## 🏗️ Arquitectura del Proyecto
-Descripción o diagrama de la estructura general (frontend, backend, infraestructura, CI/CD, etc.).
+Estructura general del sitio web (frontend, backend, infraestructura, CI/CD, etc.).
+*(Se documentará una vez completado el diseño técnico y la infraestructura).*
 
 ---
 
@@ -58,7 +61,17 @@ Instrucciones para clonar el repositorio, instalar dependencias y ejecutar el en
 ---
 
 ## 📁 Estructura del Repositorio
-Explicación de los principales directorios y su función (`src`, `public`, `infra`, etc.).
+```
+agevega.com/
+├── src/ # Código fuente (componentes, layouts, páginas)
+├── public/ # Recursos estáticos (favicons, imágenes, fuentes)
+├── infra/ # Infraestructura como código (Terraform)
+├── scripts/ # Scripts auxiliares (build, deploy, utilidades)
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+> 🧩 La estructura puede ampliarse conforme el proyecto evolucione (tests, workflows, configuración de CI/CD, etc.).
 
 ---
 
