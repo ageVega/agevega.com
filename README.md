@@ -38,8 +38,29 @@ Secciones visibles del sitio web.
 ---
 
 ## 🧱 Stack Tecnológico
-Tecnologías principales y herramientas empleadas en el desarrollo.  
-*(A definir en futuras versiones).*
+
+Listado de las principales tecnologías y herramientas que se utilizarán en el proyecto:
+
+### 🎨 Frontend
+- **Astro** — Framework estático moderno basado en componentes.  
+- **TailwindCSS** — Librería de utilidades CSS para diseño rápido y responsive.  
+- **TypeScript** — Tipado estático para un desarrollo más seguro y mantenible.  
+- **Markdown/MDX** — Contenido estructurado y fácil de editar.  
+
+### 🧠 Backend
+- **AWS Lambda (Node.js)** — Ejecución serverless para funcionalidades puntuales.  
+- **API Gateway** — Puerta de enlace para exponer funciones Lambda. *(uso futuro)*  
+
+### 🔁 CI/CD y Automatización
+- **GitHub Actions** — Orquestación de los pipelines de build, test y deploy.  
+- **OIDC** — Autenticación segura de GitHub en AWS sin uso de claves estáticas.  
+
+### ☁️ Infraestructura
+- **AWS S3** — Hosting del sitio estático.  
+- **AWS CloudFront** — CDN para distribución global y caching.  
+- **AWS Route 53** — Gestión de dominio y DNS.  
+- **AWS Certificate Manager (ACM)** — Certificados SSL/TLS.  
+- **Terraform** — Infraestructura como código (IaC) para definir y versionar recursos.
 
 ---
 
