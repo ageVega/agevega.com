@@ -41,21 +41,21 @@ Secciones visibles del sitio web.
 
 Listado de las principales tecnologías y herramientas que se utilizarán en el proyecto:
 
-### 🎨 Frontend
+### Frontend
 - **Astro** — Framework estático moderno basado en componentes.  
 - **TailwindCSS** — Librería de utilidades CSS para diseño rápido y responsive.  
 - **TypeScript** — Tipado estático para un desarrollo más seguro y mantenible.  
 - **Markdown/MDX** — Contenido estructurado y fácil de editar.  
 
-### 🧠 Backend
+### Backend
 - **AWS Lambda (Node.js)** — Ejecución serverless para funcionalidades puntuales.  
 - **API Gateway** — Puerta de enlace para exponer funciones Lambda. *(uso futuro)*  
 
-### 🔁 CI/CD y Automatización
+### CI/CD y Automatización
 - **GitHub Actions** — Orquestación de los pipelines de build, test y deploy.  
 - **OIDC** — Autenticación segura de GitHub en AWS sin uso de claves estáticas.  
 
-### ☁️ Infraestructura
+### Infraestructura
 - **AWS S3** — Hosting del sitio estático.  
 - **AWS CloudFront** — CDN para distribución global y caching.  
 - **AWS Route 53** — Gestión de dominio y DNS.  
@@ -68,18 +68,18 @@ Listado de las principales tecnologías y herramientas que se utilizarán en el 
 
 El proyecto se organiza en varias capas que cubren desde la interfaz de usuario hasta la automatización del despliegue y la infraestructura en la nube.
 
-### 🎨 Frontend
+### Frontend
 Interfaz del sitio web desarrollada con **Astro** y **TailwindCSS**, generada como contenido estático optimizado en tiempo de build.  
 El resultado se publica como HTML, CSS y JS listos para distribución global mediante CDN.
 
-### 🧠 Backend
+### Backend
 Actualmente el sitio no incluye un backend propio, ya que todo el contenido se sirve de forma estática.  
 En futuras versiones se añadirá un **formulario de contacto** mediante **AWS API Gateway** y **Lambda (Node.js)**, manteniendo el enfoque serverless y de bajo coste.
 
-### 🔁 Automatización y Entrega
+### Automatización y Entrega
 Los procesos de construcción, validación y despliegue se orquestan mediante **GitHub Actions**, garantizando un flujo automatizado desde el commit hasta la publicación del contenido.  
 
-### ☁️ Despliegue e Infraestructura
+### Despliegue e Infraestructura
 El sitio web se desplegará en **AWS**, utilizando **Terraform** como herramienta de infraestructura como código para definir y mantener los recursos necesarios.
 
 ### Elementos previstos
@@ -162,6 +162,8 @@ Si en el futuro se habilita la colaboración, se documentará el proceso y las p
 
 Este proyecto se distribuye bajo la licencia [MIT](./LICENSE).  
 Puedes consultar los términos completos en el archivo `LICENSE`.
+
+> ⚖️ Algunas dependencias del proyecto podrían estar sujetas a sus propias licencias. Consulta sus respectivos repositorios para más información.
 
 ---
 
