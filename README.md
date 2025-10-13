@@ -1,6 +1,7 @@
 # 🌐 agevega.com
 
-*Landing page profesional — Proyecto personal de Alejandro Vega*
+*Landing page profesional — Proyecto personal de **Alejandro Vega**.*
+
 
 ---
 
