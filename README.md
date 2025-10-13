@@ -12,8 +12,8 @@ Repositorio del sitio web personal y landing page profesional de **Alejandro Veg
 5. [Despliegue e Infraestructura](#-despliegue-e-infraestructura)
 6. [Instalación y Uso Local](#-instalación-y-uso-local)
 7. [Estructura del Repositorio](#-estructura-del-repositorio)
-8. [Contribución](#-contribución)
-9. [Roadmap](#-roadmap)
+8. [Roadmap](#-roadmap)
+9. [Contribución](#-contribución)
 10. [Licencia](#-licencia)
 11. [Autor y Contacto](#-autor-y-contacto)
 
@@ -54,18 +54,20 @@ Explicación de los principales directorios y su función (`src`, `public`, `inf
 
 ---
 
-## 🤝 Contribución
-Proyecto personal y cerrado.  
-El proceso de contribución se documentará si en el futuro se abre a colaboradores externos.
-
----
-
 ## 🚀 Roadmap
 Listado de mejoras e ideas futuras.
 
 ---
 
+## 🤝 Contribución
+
+Este es un proyecto personal y actualmente no está abierto a contribuciones externas.  
+Si en el futuro se habilita la colaboración, se documentará el proceso y las pautas correspondientes en esta sección.
+
+---
+
 ## 📄 Licencia
+
 Este proyecto se distribuye bajo la licencia [MIT](./LICENSE).  
 Puedes consultar los términos completos en el archivo `LICENSE`.
 
@@ -73,6 +75,5 @@ Puedes consultar los términos completos en el archivo `LICENSE`.
 
 ## 📬 Autor y Contacto
 
-**Alejandro Vega** — 🌐 [agevega.com](https://agevega.com) · 💼 [LinkedIn](https://www.linkedin.com/in/alejandro-vega94/) · ✉️ [agevega@gmail.com](mailto:agevega@gmail.com)
-
-
+**Alejandro Vega**  
+🌐 [agevega.com](https://agevega.com) · 💼 [LinkedIn](https://www.linkedin.com/in/alejandro-vega94/) · ✉️ [agevega@gmail.com](mailto:agevega@gmail.com)
