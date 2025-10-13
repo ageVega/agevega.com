@@ -63,10 +63,10 @@ Instrucciones para clonar el repositorio, instalar dependencias y ejecutar el en
 ## 📁 Estructura del Repositorio
 ```
 agevega.com/
-├── src/ # Código fuente (componentes, layouts, páginas)
-├── public/ # Recursos estáticos (favicons, imágenes, fuentes)
-├── infra/ # Infraestructura como código (Terraform)
-├── scripts/ # Scripts auxiliares (build, deploy, utilidades)
+├── src/        # Código fuente (componentes, layouts, páginas)
+├── public/     # Recursos estáticos (favicons, imágenes, fuentes)
+├── infra/      # Infraestructura como código (Terraform)
+├── scripts/    # Scripts auxiliares (build, deploy, utilidades)
 ├── .gitignore
 ├── LICENSE
 └── README.md
