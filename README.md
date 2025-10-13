@@ -39,7 +39,7 @@ Secciones visibles del sitio web.
 
 ## 🧱 Stack Tecnológico
 
-Listado de las principales tecnologías y herramientas que se utilizarán en el proyecto:
+Principales tecnologías y herramientas utilizadas en el proyecto:
 
 ### Frontend
 - **Astro** — Framework estático moderno basado en componentes.  
@@ -48,12 +48,12 @@ Listado de las principales tecnologías y herramientas que se utilizarán en el 
 - **Markdown/MDX** — Contenido estructurado y fácil de editar.  
 
 ### Backend
-- **AWS Lambda (Node.js)** — Ejecución serverless para funcionalidades puntuales.  
-- **API Gateway** — Puerta de enlace para exponer funciones Lambda. *(uso futuro)*  
+- **AWS Lambda (Node.js)** — Funcionalidades serverless futuras (contacto, integraciones).  
+- **API Gateway** — Gestión de endpoints serverless. *(uso futuro)*  
 
-### CI/CD y Automatización
-- **GitHub Actions** — Orquestación de los pipelines de build, test y deploy.  
-- **OIDC** — Autenticación segura de GitHub en AWS sin uso de claves estáticas.  
+### CI/CD
+- **GitHub Actions** — Orquestación del pipeline de build, test y despliegue.  
+- **OIDC** — Autenticación segura entre GitHub y AWS (sin claves estáticas).  
 
 ### Infraestructura
 - **AWS S3** — Hosting del sitio estático.  
@@ -66,31 +66,24 @@ Listado de las principales tecnologías y herramientas que se utilizarán en el 
 
 ## 🏗️ Arquitectura del Proyecto
 
-El proyecto se organiza en varias capas que cubren desde la interfaz de usuario hasta la automatización del despliegue y la infraestructura en la nube.
+Se estructura en varias capas que cubren desde la interfaz de usuario hasta la automatización del despliegue y la infraestructura en la nube.
 
 ### Frontend
 Interfaz del sitio web desarrollada con **Astro** y **TailwindCSS**, generada como contenido estático optimizado en tiempo de build.  
 El resultado se publica como HTML, CSS y JS listos para distribución global mediante CDN.
 
 ### Backend
-Actualmente el sitio no incluye un backend propio, ya que todo el contenido se sirve de forma estática.  
+Actualmente el sitio no incluye un backend propio.  
 En futuras versiones se añadirá un **formulario de contacto** mediante **AWS API Gateway** y **Lambda (Node.js)**, manteniendo el enfoque serverless y de bajo coste.
 
 ### Automatización y Entrega
 Los procesos de construcción, validación y despliegue se orquestan mediante **GitHub Actions**, garantizando un flujo automatizado desde el commit hasta la publicación del contenido.  
 
 ### Despliegue e Infraestructura
-El sitio web se desplegará en **AWS**, utilizando **Terraform** como herramienta de infraestructura como código para definir y mantener los recursos necesarios.
+La infraestructura se gestiona con **Terraform** sobre **AWS**, definiendo recursos como **S3**, **CloudFront**, **Route 53** y **ACM**.  
+Este enfoque permite reproducir y versionar todo el entorno de forma controlada.
 
-### Elementos previstos
-- **Hosting**: Amazon S3 (contenido estático).  
-- **CDN**: Amazon CloudFront para distribución global y caching.  
-- **Dominio**: gestionado mediante Amazon Route 53 (`agevega.com`).  
-- **Certificados SSL**: emitidos y renovados automáticamente con AWS Certificate Manager (ACM).  
-- **Infraestructura como código (IaC)**: todo el despliegue y configuración definidos en Terraform.  
-- **Automatización**: integración futura con GitHub Actions para ejecutar los despliegues.  
-
-> 🧩 La configuración detallada y los módulos de Terraform se documentarán una vez implementados.
+> 🧩 Los módulos y configuraciones específicas se documentarán una vez implementados.
 
 ---
 
