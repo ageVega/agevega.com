@@ -45,8 +45,17 @@ Tecnologías principales y herramientas empleadas en el desarrollo.
 ---
 
 ## 🏗️ Arquitectura del Proyecto
-Estructura general del sitio web (frontend, backend, infraestructura, CI/CD, etc.).  
-*(Se documentará una vez completado el diseño técnico y la infraestructura).*
+
+### 🧱 Frontend
+Interfaz del sitio web desarrollada con **Astro** y **TailwindCSS**, generada como contenido estático optimizado en tiempo de build.  
+El resultado se publica como HTML, CSS y JS listos para distribución global mediante CDN.
+
+### ⚙️ Backend
+Actualmente el sitio no incluye un backend propio.  
+Las posibles funciones dinámicas futuras (formularios, métricas, integraciones) se implementarán mediante **servicios serverless** o APIs externas, manteniendo el enfoque de sitio estático.
+
+### 🔄 Automatización y Entrega
+Los procesos de construcción, validación y despliegue se orquestan mediante **GitHub Actions**, garantizando un flujo automatizado desde el commit hasta la publicación del contenido.  
 
 ---
 
