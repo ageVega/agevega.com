@@ -1,6 +1,7 @@
 # 🌐 agevega.com
 
 Repositorio del sitio web personal y landing page profesional de **Alejandro Vega**.
+Este proyecto tiene como objetivo centralizar mi presencia profesional online, presentar mi portfolio y facilitar el contacto a través de un sitio web moderno, optimizado y desplegado en AWS.
 
 ---
 
@@ -20,7 +21,13 @@ Repositorio del sitio web personal y landing page profesional de **Alejandro Veg
 ---
 
 ## 🧩 Descripción
-Landing personal para presentar mi portfolio y ofrecer contacto profesional.
+
+Este proyecto consiste en una **landing page profesional** diseñada para:
+- Presentar mi **portfolio y trayectoria** en ingeniería DevSecOps.  
+- Reunir enlaces relevantes a mis proyectos, perfiles y contactos.  
+- Servir como **base centralizada** para mi identidad profesional online.  
+
+Desarrollado con enfoque en **optimización, rendimiento, mantenimiento sencillo y automatización del despliegue mediante AWS y Terraform.**
 
 ---
 
