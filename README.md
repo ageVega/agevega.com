@@ -52,8 +52,8 @@ Interfaz del sitio web desarrollada con **Astro** y **TailwindCSS**, generada co
 El resultado se publica como HTML, CSS y JS listos para distribución global mediante CDN.
 
 ### ⚙️ Backend
-Actualmente el sitio no incluye un backend propio.  
-Las posibles funciones dinámicas futuras (formularios, métricas, integraciones) se implementarán mediante **servicios serverless** o APIs externas, manteniendo el enfoque de sitio estático.
+Actualmente el sitio no incluye un backend propio, ya que todo el contenido se sirve de forma estática.  
+En futuras versiones se añadirá un **formulario de contacto** mediante **AWS API Gateway** y **Lambda (Node.js)**, manteniendo el enfoque serverless y de bajo coste.
 
 ### 🔄 Automatización y Entrega
 Los procesos de construcción, validación y despliegue se orquestan mediante **GitHub Actions**, garantizando un flujo automatizado desde el commit hasta la publicación del contenido.  
