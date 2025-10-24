@@ -13,7 +13,7 @@ variable "aws_profile" {
 variable "state_bucket_name" {
   description = "Nombre globalmente único del bucket S3 para el estado de Terraform"
   type        = string
-  default     = "terraform-state-agevega.com"
+  default     = "terraform-state-agevega-com"
 }
 
 variable "lock_table_name" {
