@@ -13,6 +13,7 @@ infra/
 ├── changelog/              # Entradas detalladas por fecha
 │   ├── 2025-10-18_creacion-cuenta.md
 │   └── 2025-10-18_configuracion-iam.md
+│   └── 2025-10-24_auditoria-y-configuracion-logs.md
 ├── terraform/              # Código IaC (futuro)
 └── README.md               # Índice cronológico (este archivo)
 ```
@@ -33,3 +34,9 @@ infra/
 - Creación del usuario `admin` con acceso a la consola y permisos `AdministratorAccess`
 - Creación del usuario `terraform` con acceso programático (CLI) y permisos `AdministratorAccess`  
 ➡️ [Detalles](changelog/2025-10-20_configuracion-iam.md)
+
+### 24/10/2025 — Activación de auditoría y registro de configuración
+- Habilitación de **AWS CloudTrail** con validación de logs y almacenamiento en S3 (`cloudtrail-logs-agevega.com`).
+- Habilitación de **AWS Config** con grabación continua de todos los recursos y entrega en S3 (`aws-config-logs-agevega.com`).
+- Verificación de funcionamiento y revisión de costes estimados (total < **1 €** mensual).  
+➡️ [Detalles](changelog/2025-10-24_auditoria-y-configuracion-logs.md)
