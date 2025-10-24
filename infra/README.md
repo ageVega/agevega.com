@@ -6,6 +6,19 @@ Este documento actúa como índice general de todas las operaciones y cambios re
 
 ---
 
+## 📘 Estructura del directorio
+
+```bash
+infra/
+├── changelog/              # Entradas detalladas por fecha
+│   ├── 2025-10-18_creacion-cuenta.md
+│   └── 2025-10-18_configuracion-iam.md
+├── terraform/              # Código IaC (futuro)
+└── README.md               # Índice cronológico (este archivo)
+
+
+---
+
 ## 🗓️ Cronología general
 
 ### 18/10/2025 — Creación de la cuenta AWS
@@ -16,19 +29,7 @@ Este documento actúa como índice general de todas las operaciones y cambios re
 - Activación del acceso a **facturación y costes** para usuarios IAM  
 ➡️ [Detalles](changelog/2025-10-18_creacion-cuenta.md)
 
-### 18/10/2025 — Configuración inicial de IAM
+### 20/10/2025 — Configuración inicial de IAM
 - Creación del usuario `admin` con acceso a la consola y permisos `AdministratorAccess`
 - Creación del usuario `terraform` con acceso programático (CLI) y permisos `AdministratorAccess`  
-➡️ [Detalles](changelog/2025-10-18_configuracion-iam.md)
-
----
-
-## 📘 Estructura del directorio
-
-```bash
-infra/
-├── changelog/              # Entradas detalladas por fecha
-│   ├── 2025-10-18_creacion-cuenta.md
-│   └── 2025-10-18_configuracion-iam.md
-├── terraform/              # Código IaC (futuro)
-└── README.md               # Índice cronológico (este archivo)
+➡️ [Detalles](changelog/2025-10-20_configuracion-iam.md)
