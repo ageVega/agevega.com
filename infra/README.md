@@ -1,56 +1,34 @@
 # 🧱 Infraestructura – agevega.com
 
-Documentación del proceso de creación y configuración de la infraestructura en AWS para el proyecto **agevega.com**.
+Registro cronológico de la configuración y mantenimiento de la infraestructura en AWS para el proyecto **agevega.com**.
+
+Este documento actúa como índice general de todas las operaciones y cambios realizados, con enlaces a las entradas detalladas del registro diario en la carpeta `changelog/`.
 
 ---
 
-## 📅 Cronología inicial
+## 🗓️ Cronología general
 
-### 🗓️ 18/10/2025 — Creación de la cuenta AWS
-- Se crea una **cuenta nueva en AWS** con el correo:  
-  `agevega.com@gmail.com`  
-- Se elige el **plan de pago estándar (no free tier limitado)**.  
-- Se configura **autenticación multifactor (MFA)** para el usuario raíz.  
+### 18/10/2025 — Creación de la cuenta AWS
+- Alta de nueva cuenta AWS (`agevega.com@gmail.com`)
+- Activación de plan de pago estándar
+- Configuración de MFA para el usuario raíz
+- Creación de presupuesto (budget) con alerta de **1 €**
+- Activación del acceso a **facturación y costes** para usuarios IAM  
+➡️ [Detalles](changelog/2025-10-18_creacion-cuenta.md)
 
----
-
-### ⚙️ Configuración inicial de seguridad y costes
-- Se crea un **presupuesto (Budget)** con alerta al superar **1 € de gasto mensual**.  
-- Se habilita el acceso a la **facturación** para usuarios no raíz (IAM).  
-
----
-
-### 👤 Creación de usuarios IAM
-#### Usuario `admin`
-- Acceso: **Consola de administración AWS**.  
-- Política asignada: `AdministratorAccess`.  
-- Propósito: administración general y gestión del entorno.  
-
-#### Usuario `terraform`
-- Acceso: **Programático (Access Key + Secret Key)**.  
-- Política asignada: `AdministratorAccess` (temporal, pendiente de refinar).  
-- Propósito: despliegue y gestión de infraestructura mediante **Terraform CLI**.  
+### 18/10/2025 — Configuración inicial de IAM
+- Creación del usuario `admin` con acceso a la consola y permisos `AdministratorAccess`
+- Creación del usuario `terraform` con acceso programático (CLI) y permisos `AdministratorAccess`  
+➡️ [Detalles](changelog/2025-10-18_configuracion-iam.md)
 
 ---
 
-### 🔐 Estado de seguridad actual
-- ✅ MFA activo para el usuario raíz.  
-- ✅ Acceso a facturación habilitado para IAM.  
-- ⚠️ Pendiente: crear políticas personalizadas para `terraform`.  
-- ⚠️ Pendiente: configurar backend remoto para Terraform (S3 + DynamoDB).  
+## 📘 Estructura del directorio
 
----
-
-## 📘 Próximos pasos previstos
-- [ ] Crear estructura base de Terraform (`main.tf`, `backend.tf`, etc.).  
-- [ ] Configurar bucket S3 para hosting de `agevega.com`.  
-- [ ] Generar certificado SSL en ACM.  
-- [ ] Configurar distribución CloudFront.  
-- [ ] Vincular dominio `agevega.com` desde Route 53.  
-- [ ] Documentar cada etapa en este archivo.  
-
----
-
-## 🧭 Notas
-- Este `README.md` sirve como **registro cronológico** de los cambios realizados en la infraestructura.  
-- Cada modificación relevante (usuarios, políticas, servicios, módulos Terraform, etc.) debe documentarse con fecha.  
+```bash
+infra/
+├── changelog/              # Entradas detalladas por fecha
+│   ├── 2025-10-18_creacion-cuenta.md
+│   └── 2025-10-18_configuracion-iam.md
+├── terraform/              # Código IaC (futuro)
+└── README.md               # Índice cronológico (este archivo)
