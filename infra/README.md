@@ -15,7 +15,7 @@ infra/
 │   └── 2025-10-18_configuracion-iam.md
 ├── terraform/              # Código IaC (futuro)
 └── README.md               # Índice cronológico (este archivo)
-
+```
 
 ---
 
