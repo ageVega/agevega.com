@@ -26,7 +26,9 @@ infra/
 - Alta de nueva cuenta AWS (`agevega.com@gmail.com`)
 - Activación de plan de pago estándar
 - Configuración de MFA para el usuario raíz
-- Creación de presupuesto (budget) con alerta de **1 €**
+- Cambio del idioma de la consola a **English (US)**
+- Configuración de la **moneda de visualización y facturación en euros (EUR)**
+- Creación del presupuesto global **“My 10-Euro Budget”** con alertas al 10 %, 50 %, 100 % y 200 %
 - Activación del acceso a **facturación y costes** para usuarios IAM  
 ➡️ [Detalles](changelog/2025-10-18_creacion-cuenta.md)
 
