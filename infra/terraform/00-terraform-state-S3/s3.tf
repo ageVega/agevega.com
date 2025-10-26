@@ -61,7 +61,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "tf_state" {
       prefix = ""
     }
 
-   # Transición de versiones NO actuales: barato y rápido de recuperar
+    # Transición de versiones NO actuales: barato y rápido de recuperar
     noncurrent_version_transition {
       noncurrent_days = 30
       storage_class   = "GLACIER_IR"
@@ -76,7 +76,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "tf_state" {
     # Expira versiones NO actuales pasados 365 días,
     # conservando al menos 10 versiones más recientes
     noncurrent_version_expiration {
-      noncurrent_days = 365
+      noncurrent_days           = 365
       newer_noncurrent_versions = 10
     }
 
@@ -98,7 +98,7 @@ data "aws_iam_policy_document" "require_tls" {
       identifiers = ["*"]
     }
 
-    actions   = ["s3:*"]
+    actions = ["s3:*"]
     resources = [
       aws_s3_bucket.tf_state.arn,
       "${aws_s3_bucket.tf_state.arn}/*"
