@@ -1,8 +1,8 @@
 # Tabla para locking del estado (evita carreras en terraform apply)
 resource "aws_dynamodb_table" "tf_lock" {
-  name         = var.lock_table_name
-  billing_mode = "PAY_PER_REQUEST"
-  hash_key     = "LockID"
+  name                        = var.lock_table_name
+  billing_mode                = "PAY_PER_REQUEST"
+  hash_key                    = "LockID"
   deletion_protection_enabled = true
 
   attribute {

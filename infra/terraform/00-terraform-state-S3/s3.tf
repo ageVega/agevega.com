@@ -48,6 +48,45 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "tf_state" {
   }
 }
 
+# Lifecycle para controlar versiones antiguas del tfstate
+resource "aws_s3_bucket_lifecycle_configuration" "tf_state" {
+  bucket = aws_s3_bucket.tf_state.id
+
+  rule {
+    id     = "retain-tfstate-history"
+    status = "Enabled"
+
+    # Aplica a todo el bucket
+    filter {
+      prefix = ""
+    }
+
+   # Transición de versiones NO actuales: barato y rápido de recuperar
+    noncurrent_version_transition {
+      noncurrent_days = 30
+      storage_class   = "GLACIER_IR"
+    }
+
+    # Aún más barato (recuperación lenta)
+    noncurrent_version_transition {
+      noncurrent_days = 90
+      storage_class   = "DEEP_ARCHIVE"
+    }
+
+    # Expira versiones NO actuales pasados 365 días,
+    # conservando al menos 10 versiones más recientes
+    noncurrent_version_expiration {
+      noncurrent_days = 365
+      newer_noncurrent_versions = 10
+    }
+
+    # Higiene: abortar subidas multipart sin finalizar
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 7
+    }
+  }
+}
+
 # Requerir TLS (bloquear peticiones sin HTTPS)
 data "aws_iam_policy_document" "require_tls" {
   statement {
