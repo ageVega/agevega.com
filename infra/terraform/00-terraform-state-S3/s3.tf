@@ -69,7 +69,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "tf_state" {
 
     # Aún más barato (recuperación lenta)
     noncurrent_version_transition {
-      noncurrent_days = 90
+      noncurrent_days = 120
       storage_class   = "DEEP_ARCHIVE"
     }
 
