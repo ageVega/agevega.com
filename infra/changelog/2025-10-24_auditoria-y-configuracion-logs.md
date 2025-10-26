@@ -107,8 +107,7 @@ Con esta configuración, el entorno queda preparado para auditoría completa, tr
 | **CloudTrail** | Activo + Validación ON | eu-south-2 | `cloudtrail-logs-agevega-com` | ~0,05 € |
 | **AWS Config** | Activo + Retención 7 años | eu-south-2 | `aws-config-logs-agevega-com` | ~0,60 € |
 
-**Coste total estimado mensual:** ~0,65 €  
-✅ Dentro del límite de presupuesto de **1 €** configurado en AWS Budgets.
+**Coste total estimado mensual:** ~0,65 €
 
 ---
 

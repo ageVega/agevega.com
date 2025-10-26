@@ -26,10 +26,11 @@ infra/
 - Alta de nueva cuenta AWS (`agevega.com@gmail.com`)
 - Activación de plan de pago estándar
 - Configuración de MFA para el usuario raíz
+- Activación del acceso a **facturación y costes** para usuarios IAM
 - Cambio del idioma de la consola a **English (US)**
 - Configuración de la **moneda de visualización y facturación en euros (EUR)**
 - Creación del presupuesto global **“My 10$ Budget”** con alertas al 10 %, 50 %, 100 % y 200 %
-- Activación del acceso a **facturación y costes** para usuarios IAM  
+- Creación del presupuesto global **“My Daily 1$ Budget”** con alertas al 50 %, 100 %, 200 %, 500 % y 1000 %
 ➡️ [Detalles](changelog/2025-10-18_creacion-cuenta.md)
 
 ### 20/10/2025 — Configuración inicial de IAM
@@ -40,5 +41,4 @@ infra/
 ### 24/10/2025 — Activación de auditoría y registro de configuración
 - Habilitación de **AWS CloudTrail** con validación de logs y almacenamiento en S3 (`cloudtrail-logs-agevega-com`).
 - Habilitación de **AWS Config** con grabación continua de todos los recursos y entrega en S3 (`aws-config-logs-agevega-com`).
-- Verificación de funcionamiento y revisión de costes estimados (total < **1 €** mensual).  
 ➡️ [Detalles](changelog/2025-10-24_auditoria-y-configuracion-logs.md)
