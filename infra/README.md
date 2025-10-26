@@ -42,3 +42,10 @@ infra/
 - Habilitación de **AWS CloudTrail** con validación de logs y almacenamiento en S3 (`cloudtrail-logs-agevega-com`).
 - Habilitación de **AWS Config** con grabación continua de todos los recursos y entrega en S3 (`aws-config-logs-agevega-com`).
 ➡️ [Detalles](changelog/2025-10-24_auditoria-y-configuracion-logs.md)
+
+### 26/10/2025 — Configuración del backend remoto de Terraform (S3 + DynamoDB)
+- Creación del **bucket S3** `terraform-state-agevega-com` en `eu-south-2` para el estado remoto de Terraform.  
+- Activación de **versionado**, **cifrado SSE-AES256**, **bloqueo de acceso público** y **propiedad forzada al propietario**.  
+- Aplicación de política **DenyInsecureTransport** y regla de ciclo de vida con transición a **GLACIER_IR (30 d)** y **DEEP_ARCHIVE (120 d)**.  
+- Creación de la **tabla DynamoDB** `terraform-state-lock` para bloqueo de estado, con **SSE**, **PITR** y **protección contra borrado** habilitados.  
+➡️ [Detalles](changelog/2025-10-26_configuracion-terraform-state.md)

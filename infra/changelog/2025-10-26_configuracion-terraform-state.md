@@ -1,0 +1,56 @@
+# 🧩 2025-10-26 — Configuración del backend remoto de Terraform (S3 + DynamoDB)
+
+### 🗂️ Descripción
+Configuración del almacenamiento remoto del estado de Terraform y su mecanismo de bloqueo mediante servicios gestionados de AWS.  
+Con esta implementación, la infraestructura queda preparada para operar de forma segura y consistente con **estado centralizado, versionado y protegido frente a accesos no cifrados**.
+
+---
+
+## ☁️ AWS S3 – Estado remoto de Terraform
+
+### ⚙️ Acciones realizadas
+- Creado el bucket **`terraform-state-agevega-com`** en la región **`eu-south-2 (Madrid)`**.  
+- Configuración de seguridad aplicada:
+  - **Bloqueo completo de acceso público** ✅  
+  - **Propiedad forzada al propietario (BucketOwnerEnforced)** ✅  
+  - **Versionado activado** ✅  
+  - **Cifrado SSE-AES256** habilitado por defecto ✅  
+  - **Política de denegación de tráfico no cifrado** (*DenyInsecureTransport*) ✅  
+- Definida **regla de ciclo de vida**:
+  - Aborto de cargas multiparte tras **7 días**.  
+  - Conserva **las 10 versiones más recientes** y expira versiones no actuales tras **365 días**.  
+  - Transición de versiones no actuales a **GLACIER_IR** a los **30 días** y a **DEEP_ARCHIVE** a los **120 días**.  
+- Etiquetas aplicadas: `Name`, `Project`, `Owner`, `Role`, `IaC`.
+
+---
+
+## 🔒 AWS DynamoDB – Bloqueo de estado
+
+### ⚙️ Acciones realizadas
+- Creada la tabla **`terraform-state-lock`** con clave primaria `LockID` (tipo `S`).  
+- Modo de capacidad: **PAY_PER_REQUEST**.  
+- Configuración de seguridad:
+  - **Cifrado SSE** habilitado ✅  
+  - **Protección frente a eliminación** (`deletion_protection_enabled = true`) ✅  
+  - **Recuperación a un punto en el tiempo (PITR)** habilitada ✅  
+- Etiquetas coherentes con el resto de la infraestructura (`Name`, `Project`, `Owner`, `Role`, `IaC`).
+
+---
+
+### 🎯 Motivo
+- Centralizar el estado de Terraform en un bucket seguro y versionado.  
+- Evitar corrupciones o concurrencia mediante **bloqueo distribuido** en DynamoDB.  
+- Cumplir buenas prácticas de seguridad y resiliencia recomendadas por AWS para IaC.
+
+---
+
+### 🧾 Evidencias / Comentarios
+- Ambos recursos creados correctamente y verificados en consola.  
+- Error inicial `InvalidArgument` al crear la regla de ciclo de vida corregido (ajuste de transición a 120 días para DEEP_ARCHIVE).  
+- Confirmada correcta aplicación de políticas, cifrado y versionado.  
+
+---
+
+### 🚧 Pendiente
+- [ ] Configurar el bloque `backend "s3"` en Terraform para apuntar a `terraform-state-agevega-com` y `terraform-state-lock`.  
+- [ ] Evaluar migración futura a cifrado con **KMS CMK** para mayor control y trazabilidad.  
