@@ -113,7 +113,4 @@ Con esta configuración, el entorno queda preparado para auditoría completa, tr
 ---
 
 ### 🚧 Pendiente
-- [ ] Crear reglas AWS Config básicas (ej. `s3-bucket-public-read-prohibited`).  
-- [ ] Vincular SNS para alertas de Config y CloudTrail (opcional).  
-- [ ] Evaluar cifrado SSE-KMS para ambos buckets en el futuro.  
 - [ ] Considerar reducción de retención de Config a 1 año para optimizar costes.

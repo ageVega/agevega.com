@@ -12,7 +12,7 @@ Este paso establece la base de seguridad, control de costes y configuración reg
 - Activación de **autenticación multifactor (MFA)** para el usuario raíz, utilizando aplicación móvil TOTP.  
 - Configuración del **idioma de la consola en inglés (English - US)** para mantener consistencia con documentación técnica.  
 - Configuración de **la moneda de visualización y facturación en euros (EUR)** desde *Billing → Cost Management → Preferences*.  
-- Creación de un **presupuesto global (“My 10-Euro Budget”)** con importe total de **10 €** y alertas escalonadas al 10 %, 50 %, 100 % y 200 %.  
+- Creación de un **presupuesto global (“My 10$ Budget”)** con importe total de **10 USD (~10 EUR)** y alertas escalonadas al 10 %, 50 %, 100 % y 200 %.
 - Habilitación de la opción **“Enable IAM Access to Billing”**, permitiendo que los usuarios IAM puedan acceder a la información de facturación y costes.  
 
 ---
