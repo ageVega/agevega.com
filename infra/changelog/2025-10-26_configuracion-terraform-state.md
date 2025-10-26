@@ -1,7 +1,7 @@
 # 🧩 2025-10-26 — Configuración del backend remoto de Terraform (S3 + DynamoDB)
 
 ### 🗂️ Descripción
-Configuración del almacenamiento remoto del estado de Terraform y su mecanismo de bloqueo mediante servicios gestionados de AWS.  
+Despliegue del código contenido en `infra/terraform/00-terraform-state-S3`, encargado de configurar el almacenamiento remoto del estado de Terraform y su mecanismo de bloqueo mediante servicios gestionados de AWS.  
 Con esta implementación, la infraestructura queda preparada para operar de forma segura y consistente con **estado centralizado, versionado y protegido frente a accesos no cifrados**.
 
 ---
@@ -38,6 +38,7 @@ Con esta implementación, la infraestructura queda preparada para operar de form
 ---
 
 ### 🎯 Motivo
+- Desplegar el backend remoto de Terraform desde código IaC versionado.  
 - Centralizar el estado de Terraform en un bucket seguro y versionado.  
 - Evitar corrupciones o concurrencia mediante **bloqueo distribuido** en DynamoDB.  
 - Cumplir buenas prácticas de seguridad y resiliencia recomendadas por AWS para IaC.
@@ -45,8 +46,9 @@ Con esta implementación, la infraestructura queda preparada para operar de form
 ---
 
 ### 🧾 Evidencias / Comentarios
-- Ambos recursos creados correctamente y verificados en consola.  
-- Error inicial `InvalidArgument` al crear la regla de ciclo de vida corregido (ajuste de transición a 120 días para DEEP_ARCHIVE).  
+- Despliegue ejecutado correctamente desde `infra/terraform/00-terraform-state-S3`.  
+- Ambos recursos creados y verificados en consola.  
+- Error inicial `InvalidArgument` en la regla de ciclo de vida corregido (ajuste a 120 días para DEEP_ARCHIVE).  
 - Confirmada correcta aplicación de políticas, cifrado y versionado.  
 
 ---

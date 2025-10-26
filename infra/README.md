@@ -14,7 +14,9 @@ infra/
 │   ├── 2025-10-18_creacion-cuenta.md
 │   └── 2025-10-18_configuracion-iam.md
 │   └── 2025-10-24_auditoria-y-configuracion-logs.md
+│   └── 2025-10-26_configuracion-terraform-state.md
 ├── terraform/              # Código IaC (futuro)
+│   ├── 00-terraform-state-S3/
 └── README.md               # Índice cronológico (este archivo)
 ```
 
