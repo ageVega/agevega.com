@@ -13,7 +13,7 @@ variable "aws_profile" {
 variable "resource_prefix" {
   description = "Prefix used for tagging and naming AWS resources"
   type        = string
-  default     = "agevega.com"
+  default     = "agevegacom"
 }
 
 variable "vpc_cidr" {

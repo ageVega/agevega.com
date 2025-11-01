@@ -1,7 +1,7 @@
 # 🧩 2025-10-18 — Creación de la cuenta AWS
 
 ### 🗂️ Descripción
-Creación y configuración inicial de la cuenta raíz de AWS destinada al proyecto **agevega.com**.  
+Creación y configuración inicial de la cuenta raíz de AWS destinada al proyecto **agevegacom**.  
 Este paso establece la base de seguridad, control de costes y configuración regional para toda la infraestructura futura.
 
 ---

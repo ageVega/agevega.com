@@ -9,7 +9,7 @@ Con esta implementación, la infraestructura queda preparada para operar de form
 ## ☁️ AWS S3 – Estado remoto de Terraform
 
 ### ⚙️ Acciones realizadas
-- Creado el bucket **`terraform-state-agevega-com`** en la región **`eu-south-2 (Madrid)`**.  
+- Creado el bucket **`terraform-state-agevegacom`** en la región **`eu-south-2 (Madrid)`**.  
 - Configuración de seguridad aplicada:
   - **Bloqueo completo de acceso público** ✅  
   - **Propiedad forzada al propietario (BucketOwnerEnforced)** ✅  
@@ -54,5 +54,5 @@ Con esta implementación, la infraestructura queda preparada para operar de form
 ---
 
 ### 🚧 Pendiente
-- [ ] Configurar el bloque `backend "s3"` en Terraform para apuntar a `terraform-state-agevega-com` y `terraform-state-lock`.  
+- [ ] Configurar el bloque `backend "s3"` en Terraform para apuntar a `terraform-state-agevegacom` y `terraform-state-lock`.  
 - [ ] Evaluar migración futura a cifrado con **KMS CMK** para mayor control y trazabilidad.  

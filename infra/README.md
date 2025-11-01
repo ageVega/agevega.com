@@ -1,6 +1,6 @@
-# 🧱 Infraestructura – agevega.com
+# 🧱 Infraestructura – agevegacom
 
-Registro cronológico de la configuración y mantenimiento de la infraestructura en AWS para el proyecto **agevega.com**.
+Registro cronológico de la configuración y mantenimiento de la infraestructura en AWS para el proyecto **agevegacom**.
 
 Este documento actúa como índice general de todas las operaciones y cambios realizados, con enlaces a las entradas detalladas del registro diario en la carpeta `changelog/`.
 
@@ -41,13 +41,13 @@ infra/
 ➡️ [Detalles](changelog/2025-10-20_configuracion-iam.md)
 
 ### 24/10/2025 — Activación de auditoría y registro de configuración
-- Habilitación de **AWS CloudTrail** con validación de logs y almacenamiento en S3 (`cloudtrail-logs-agevega-com`).
-- Habilitación de **AWS Config** con grabación continua de todos los recursos y entrega en S3 (`aws-config-logs-agevega-com`).
+- Habilitación de **AWS CloudTrail** con validación de logs y almacenamiento en S3 (`cloudtrail-logs-agevegacom`).
+- Habilitación de **AWS Config** con grabación continua de todos los recursos y entrega en S3 (`aws-config-logs-agevegacom`).
 ➡️ [Detalles](changelog/2025-10-24_auditoria-y-configuracion-logs.md)
 
 ### 26/10/2025 — Configuración del backend remoto de Terraform (S3 + DynamoDB)
 - Despliegue del código en `infra/terraform/00-terraform-state-S3` para configurar el backend remoto de Terraform.  
-- Creación del **bucket S3** `terraform-state-agevega-com` en `eu-south-2` para el estado remoto.  
+- Creación del **bucket S3** `terraform-state-agevegacom` en `eu-south-2` para el estado remoto.  
 - Activación de **versionado**, **cifrado SSE-AES256**, **bloqueo de acceso público** y **propiedad forzada al propietario**.  
 - Aplicación de política **DenyInsecureTransport** y regla de ciclo de vida con transición a **GLACIER_IR (30 d)** y **DEEP_ARCHIVE (120 d)**.  
 - Creación de la **tabla DynamoDB** `terraform-state-lock` para bloqueo de estado, con **SSE**, **PITR** y **protección contra borrado** habilitados.  

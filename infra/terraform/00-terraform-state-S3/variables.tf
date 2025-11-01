@@ -13,7 +13,7 @@ variable "aws_profile" {
 variable "state_bucket_name" {
   description = "Nombre globalmente único del bucket S3 para el estado de Terraform"
   type        = string
-  default     = "terraform-state-agevega-com"
+  default     = "terraform-state-agevegacom"
 }
 
 variable "lock_table_name" {
@@ -26,7 +26,7 @@ variable "common_tags" {
   description = "Common tags to apply to all resources"
   type        = map(string)
   default = {
-    Project = "agevega.com"
+    Project = "agevegacom"
     Owner   = "Alejandro Vega"
     IaC     = "Terraform"
   }

@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket         = "terraform-state-agevega-com"
-    key            = "envs/lab/agevega.com/terraform.tfstate"
+    bucket         = "terraform-state-agevegacom"
+    key            = "envs/dev/agevegacom/terraform.tfstate"
     region         = "eu-south-2"
     dynamodb_table = "terraform-state-lock"
     encrypt        = true

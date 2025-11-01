@@ -1,7 +1,7 @@
 # 🧩 2025-11-01 — Despliegue de red (VPC, subredes y componentes base)
 
 ### 🗂️ Descripción
-Despliegue del módulo `01-networking` en `infra/terraform/01-networking/`, encargado de crear la red base del entorno **agevega.com** en AWS.  
+Despliegue del módulo `01-networking` en `infra/terraform/01-networking/`, encargado de crear la red base del entorno **agevegacom** en AWS.  
 Incluye la VPC principal, subredes públicas, privadas y de bases de datos, así como los elementos necesarios para la conectividad (Internet Gateway, NAT Gateway, tablas de rutas y etiquetas coherentes).
 
 ---
@@ -76,8 +76,8 @@ public-c / private-c / db-c
 Aplicadas etiquetas uniformes en todos los recursos:
 | Clave | Valor |
 |-------|--------|
-| Name | agevega.com |
-| Project | agevega.com |
+| Name | agevegacom |
+| Project | agevegacom |
 | Environment | dev |
 | Owner | Alejandro Vega |
 | IaC | Terraform |

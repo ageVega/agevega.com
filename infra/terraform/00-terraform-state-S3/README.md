@@ -18,7 +18,7 @@ terraform apply
 
 - **Región:** `eu-south-2`
 - **Perfil AWS CLI:** `terraform`
-- **Bucket:** `terraform-state-agevega-com`
+- **Bucket:** `terraform-state-agevegacom`
 - **Tabla:** `terraform-state-lock`
 
 ---
@@ -31,7 +31,7 @@ En los **proyectos que consuman** el backend, añade un bloque `backend "s3"`
 ```hcl
 terraform {
   backend "s3" {
-    bucket         = "terraform-state-agevega-com"
+    bucket         = "terraform-state-agevegacom"
     key            = "envs/dev/terraform.tfstate" # ajusta la ruta lógica
     region         = "eu-south-2"
     dynamodb_table = "terraform-state-lock"

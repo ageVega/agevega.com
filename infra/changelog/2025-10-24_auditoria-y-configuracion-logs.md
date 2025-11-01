@@ -10,18 +10,18 @@ Con esta configuración, el entorno queda preparado para auditoría completa, tr
 
 ### ⚙️ Acciones realizadas
 - Creado un **Trail multirregional** con nombre:  
-  `agevega.com-trail`
+  `agevegacom-trail`
 - Región principal: **eu-south-2 (España)**.
 - Activado registro de eventos en **todas las regiones**.
 - Bucket S3 asociado:  
-  `cloudtrail-logs-agevega-com`
+  `cloudtrail-logs-agevegacom`
 - Configuración de seguridad:
   - Bloqueo de acceso público ✅  
   - ACLs deshabilitadas ✅  
   - Cifrado SSE-S3 activo ✅  
 - Activada la **validación de archivos de registro** para garantizar la integridad de los logs.  
 - Confirmado envío de archivos al bucket:  
-  `s3://cloudtrail-logs-agevega-com/AWSLogs/332327025453/`
+  `s3://cloudtrail-logs-agevegacom/AWSLogs/332327025453/`
 - No configuradas notificaciones SNS ni integración con CloudWatch Logs (pendiente de definir si se requerirá alertado en tiempo real).
 
 ---
@@ -35,7 +35,7 @@ Con esta configuración, el entorno queda preparado para auditoría completa, tr
 
 ### 🧾 Evidencias / Comentarios
 - ARN del trail:  
-  `arn:aws:cloudtrail:eu-south-2:332327025453:trail/agevega.com-trail`
+  `arn:aws:cloudtrail:eu-south-2:332327025453:trail/agevegacom-trail`
 - Estado: **Enabled**
 - Validación de archivos: **Enabled**
 - Última entrega de logs confirmada en el bucket S3.
@@ -60,7 +60,7 @@ Con esta configuración, el entorno queda preparado para auditoría completa, tr
 - Grabación configurada en modo **continuo** para **todos los tipos de recursos (236 detectados)**.  
 - Activada la opción **incluir recursos globales** (IAM, CloudFront, etc.).  
 - Bucket S3 de entrega creado:  
-  `aws-config-logs-agevega-com`
+  `aws-config-logs-agevegacom`
 - Propiedades del bucket:
   - Bloqueo de acceso público ✅  
   - ACLs deshabilitadas ✅  
@@ -84,7 +84,7 @@ Con esta configuración, el entorno queda preparado para auditoría completa, tr
 ### 🧾 Evidencias / Comentarios
 - Grabación activa (`Recording: ON`).  
 - Carpeta de entrega inicial creada:  
-  `s3://aws-config-logs-agevega-com/AWSLogs/332327025453/Config/eu-south-2/`  
+  `s3://aws-config-logs-agevegacom/AWSLogs/332327025453/Config/eu-south-2/`  
 - Rol IAM `AWSServiceRoleForConfig` visible y operativo.  
 - Sin errores ni advertencias en la consola AWS Config.
 
@@ -104,8 +104,8 @@ Con esta configuración, el entorno queda preparado para auditoría completa, tr
 
 | Servicio | Estado | Región | Bucket | Coste estimado |
 |-----------|--------|--------|--------|----------------|
-| **CloudTrail** | Activo + Validación ON | eu-south-2 | `cloudtrail-logs-agevega-com` | ~0,05 € |
-| **AWS Config** | Activo + Retención 7 años | eu-south-2 | `aws-config-logs-agevega-com` | ~0,60 € |
+| **CloudTrail** | Activo + Validación ON | eu-south-2 | `cloudtrail-logs-agevegacom` | ~0,05 € |
+| **AWS Config** | Activo + Retención 7 años | eu-south-2 | `aws-config-logs-agevegacom` | ~0,60 € |
 
 **Coste total estimado mensual:** ~0,65 €
 
