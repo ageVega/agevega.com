@@ -1,6 +1,6 @@
 output "vpc_id" {
   description = "ID de la VPC desplegada"
-  value       = aws_vpc.matrix_vpc.id
+  value       = aws_vpc.agevegacom_vpc.id
 }
 
 output "subnet_public_1_id" {
