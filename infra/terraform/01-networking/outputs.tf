@@ -88,11 +88,6 @@ output "db_route_table_3_id" {
   value       = aws_route_table.db_route_table_3.id
 }
 
-output "key_pair_name" {
-  description = "Nombre del par de claves para SSH"
-  value       = aws_key_pair.test_keypair.key_name
-}
-
 output "security_group_id" {
   description = "ID del grupo de seguridad principal"
   value       = aws_security_group.test_alltraffic_sg.id
