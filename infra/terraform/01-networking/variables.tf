@@ -56,8 +56,3 @@ variable "availability_zones" {
   type        = list(string)
   default     = ["eu-south-2a", "eu-south-2b", "eu-south-2c"]
 }
-
-variable "test_keypair_public_key" {
-  description = "Public key material (OpenSSH format) for the test key pair"
-  type        = string
-}
