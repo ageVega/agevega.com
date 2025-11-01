@@ -63,6 +63,8 @@ Modifica la clave si necesitas aislar otros entornos (por ejemplo, `envs/pre` o 
 - `public_subnets` – Lista de subredes públicas
 - `private_subnets` – Lista de subredes privadas
 - `db_subnets` – Lista de subredes específicas para bases de datos (sin salida a Internet)
+
+El módulo también genera un par de claves RSA de prueba (`${var.resource_prefix}-test-keypair`) para acceder por SSH a los recursos del entorno lab.
 - `availability_zones` – Zonas de disponibilidad usadas (`eu-south-2a/b/c`)
 
 ---

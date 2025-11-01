@@ -90,7 +90,7 @@ output "db_route_table_3_id" {
 
 output "key_pair_name" {
   description = "Nombre del par de claves para SSH"
-  value       = aws_key_pair.matrix_key_pair.key_name
+  value       = aws_key_pair.lab_test_keypair.key_name
 }
 
 output "security_group_id" {

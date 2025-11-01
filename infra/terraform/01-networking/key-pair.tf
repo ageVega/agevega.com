@@ -1,19 +1,20 @@
-resource "tls_private_key" "ec2_key_pair" {
+resource "tls_private_key" "lab_test_keypair" {
   algorithm = "RSA"
   rsa_bits  = 4096
 }
 
-resource "aws_key_pair" "matrix_key_pair" {
-  key_name   = replace("${var.resource_prefix}-keypair", ".", "-")
-  public_key = tls_private_key.ec2_key_pair.public_key_openssh
+resource "aws_key_pair" "lab_test_keypair" {
+  key_name   = replace("${var.resource_prefix}-test-keypair", ".", "-")
+  public_key = tls_private_key.lab_test_keypair.public_key_openssh
 
   tags = {
-    Name = "${var.resource_prefix}-keypair"
+    Name  = "${var.resource_prefix}-test-keypair"
+    Usage = "lab-testing"
   }
 }
 
 output "private_key" {
-  description = "Private key to use for SSH access"
-  value       = tls_private_key.ec2_key_pair.private_key_pem
+  description = "Private key to use for SSH access (test keypair)"
+  value       = tls_private_key.lab_test_keypair.private_key_pem
   sensitive   = true
 }
