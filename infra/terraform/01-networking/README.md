@@ -1,26 +1,87 @@
 # 01-networking
 
-Provisions the agevegacom network stack: VPC, public and private subnets, routing tables, security groups, and an EC2 key pair. The state for this module now lives in the centralized backend created by `00-terraform-state-S3`.  
-💡 The NAT Gateway resources are documented but commented out in `vpc.tf` to avoid the ~33 €/mes fixed cost; uncomment them only when the budget grows.
+Este módulo crea la infraestructura de red base para el proyecto **agevegacom**: VPC principal, subredes públicas y privadas, tablas de rutas, grupos de seguridad y par de claves EC2.  
+El estado remoto se almacena en el backend centralizado creado por `00-terraform-state-S3`.
 
-## Prerequisites
-- Run `terraform apply` inside `infra/terraform/00-terraform-state-S3` so the S3 bucket `terraform-state-agevegacom` and DynamoDB table `terraform-state-lock` exist.
-- Configure AWS credentials for the `terraform` CLI profile (or override the `aws_profile` variable).
+> 💡 **NAT Gateway pospuesto:** los recursos están documentados pero comentados en `vpc.tf` para evitar el coste fijo (~33 €/mes). Descoméntalos cuando el presupuesto lo permita.
 
-## Usage
+---
+
+## 🧩 Uso rápido
+
 ```bash
 cd infra/terraform/01-networking
-terraform init    # picks up the shared S3 backend
+terraform init
 terraform plan
 terraform apply
 ```
 
-The backend stores state under the key `envs/dev/agevegacom/terraform.tfstate`. Adjust it in `backend.tf` if you want to isolate other environments.
+---
 
-## Variables
-- `aws_region` / `aws_profile`: defaults to `eu-south-2` and the `terraform` profile to align with the shared backend.
-- `resource_prefix`: string used in all resource names/tags (por defecto `agevegacom`.
-- `vpc_cidr`, `public_subnets`, `private_subnets`: customize the network layout.
-- `availability_zones`: list of AZs used for both public and private subnets; keep at least as many entries as subnets.
+## 🗂️ Prerrequisitos
 
-Review `outputs.tf` to see which identifiers are exposed for downstream modules or stacks.
+1. Haber desplegado previamente el backend remoto:
+   ```bash
+   cd infra/terraform/00-terraform-state-S3
+   terraform apply
+   ```
+2. Ese módulo crea:
+   - Bucket S3 `terraform-state-agevegacom` (estado remoto)
+   - Tabla DynamoDB `terraform-state-lock` (bloqueo de estado)
+
+---
+
+## 🗄️ Backend de estado
+
+`backend.tf` apunta al bucket compartido y guarda el estado en:
+
+```
+envs/dev/agevegacom/terraform.tfstate
+```
+
+Modifica la clave si necesitas aislar otros entornos (por ejemplo, `envs/pre` o `envs/pro`).
+
+---
+
+## ⚙️ Valores por defecto
+
+- **Región:** `eu-south-2`
+- **Perfil AWS CLI:** `terraform`
+- **Prefijo de recursos:** `agevegacom`
+- **CIDR VPC:** `10.0.0.0/16`
+- **Subredes públicas/privadas:** distribuidas en `eu-south-2a`, `eu-south-2b`, `eu-south-2c`
+- **NAT Gateway:** comentado por defecto (evita costes hasta que sea necesario)
+
+---
+
+## 🔧 Variables principales
+
+- `aws_region` – Región de despliegue (defecto `eu-south-2`)
+- `aws_profile` – Perfil de credenciales CLI (defecto `terraform`)
+- `resource_prefix` – Prefijo para nombres/etiquetas (defecto `agevegacom`)
+- `vpc_cidr` – CIDR principal de la VPC (defecto `10.0.0.0/16`)
+- `public_subnets` – Lista de subredes públicas
+- `private_subnets` – Lista de subredes privadas
+- `availability_zones` – Zonas de disponibilidad usadas (`eu-south-2a/b/c`)
+
+---
+
+## 📤 Salidas
+
+Revisa `outputs.tf` para consultar los IDs y valores expuestos (ej.: `vpc_id`, `subnet_public_*`, `route_table_*`, `security_group_id`).
+
+---
+
+## 📋 Orden recomendado
+
+1. Crear el backend remoto:
+   ```bash
+   cd infra/terraform/00-terraform-state-S3
+   terraform apply
+   ```
+2. Desplegar la red base:
+   ```bash
+   cd ../01-networking
+   terraform init
+   terraform apply
+   ```
