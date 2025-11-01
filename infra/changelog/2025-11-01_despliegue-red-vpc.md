@@ -18,8 +18,6 @@ Incluye la VPC principal, subredes públicas, privadas y de bases de datos, así
 
 ---
 
----
-
 ## 🧩 Subredes
 
 ### ⚙️ Acciones realizadas

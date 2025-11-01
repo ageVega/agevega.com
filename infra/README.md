@@ -15,6 +15,7 @@ infra/
 │   └── 2025-10-18_configuracion-iam.md
 │   └── 2025-10-24_auditoria-y-configuracion-logs.md
 │   └── 2025-10-26_configuracion-terraform-state.md
+│   └── 2025-11-01_despliegue-red-vpc.md
 ├── terraform/              
 │   ├── 00-terraform-state-S3/
 └── README.md               
