@@ -152,6 +152,9 @@ resource "aws_vpc_endpoint" "vpce_s3" {
     aws_route_table.private_route_table_1.id,
     aws_route_table.private_route_table_2.id,
     aws_route_table.private_route_table_3.id,
+    aws_route_table.db_route_table_1.id,
+    aws_route_table.db_route_table_2.id,
+    aws_route_table.db_route_table_3.id,
   ]
 
   tags = merge(
