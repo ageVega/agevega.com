@@ -32,7 +32,7 @@ En los **proyectos que consuman** el backend, añade un bloque `backend "s3"`
 terraform {
   backend "s3" {
     bucket         = "terraform-state-agevegacom"
-    key            = "envs/dev/terraform.tfstate" # ajusta la ruta lógica
+    key            = "envs/lab/agevegacom/terraform.tfstate" # ajusta la ruta lógica
     region         = "eu-south-2"
     dynamodb_table = "terraform-state-lock"
     encrypt        = true
