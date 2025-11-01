@@ -1,11 +1,11 @@
-resource "tls_private_key" "lab_test_keypair" {
+resource "tls_private_key" "test_keypair" {
   algorithm = "RSA"
   rsa_bits  = 4096
 }
 
-resource "aws_key_pair" "lab_test_keypair" {
+resource "aws_key_pair" "test_keypair" {
   key_name   = "${var.resource_prefix}-test-keypair"
-  public_key = tls_private_key.lab_test_keypair.public_key_openssh
+  public_key = tls_private_key.test_keypair.public_key_openssh
 
   tags = {
     Name  = "${var.resource_prefix}-test-keypair"
@@ -15,6 +15,6 @@ resource "aws_key_pair" "lab_test_keypair" {
 
 output "private_key" {
   description = "Private key to use for SSH access (test keypair)"
-  value       = tls_private_key.lab_test_keypair.private_key_pem
+  value       = tls_private_key.test_keypair.private_key_pem
   sensitive   = true
 }
