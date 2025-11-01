@@ -36,7 +36,7 @@ terraform apply
 `backend.tf` apunta al bucket compartido y guarda el estado en:
 
 ```
-envs/dev/agevegacom/terraform.tfstate
+envs/lab/agevegacom/terraform.tfstate
 ```
 
 Modifica la clave si necesitas aislar otros entornos (por ejemplo, `envs/pre` o `envs/pro`).
