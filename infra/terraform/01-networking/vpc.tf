@@ -161,3 +161,33 @@ resource "aws_route_table_association" "private_subnet_3_association" {
   subnet_id      = aws_subnet.private_subnet_3.id
   route_table_id = aws_route_table.private_route_table_3.id
 }
+
+# NAT Gateway (opcional – no desplegar mientras el presupuesto sea 5–10 €)
+# Descomenta estos recursos cuando necesites salida a Internet desde las subredes privadas.
+# resource "aws_eip" "nat_eip" {
+#   domain = "vpc"
+#
+#   tags = {
+#     Name = "${var.resource_prefix}-nat-eip"
+#   }
+# }
+#
+# resource "aws_nat_gateway" "nat_gw" {
+#   allocation_id = aws_eip.nat_eip.id
+#   subnet_id     = aws_subnet.public_subnet_1.id
+#
+#   tags = {
+#     Name = "${var.resource_prefix}-nat-gw"
+#   }
+# }
+#
+# resource "aws_route" "private_default_route" {
+#   for_each               = {
+#     az0 = aws_route_table.private_route_table_1.id
+#     az1 = aws_route_table.private_route_table_2.id
+#     az2 = aws_route_table.private_route_table_3.id
+#   }
+#   route_table_id         = each.value
+#   destination_cidr_block = "0.0.0.0/0"
+#   nat_gateway_id         = aws_nat_gateway.nat_gw.id
+# }

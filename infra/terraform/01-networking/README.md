@@ -1,6 +1,7 @@
-# 01-matrix
+# 01-networking
 
-Provisions the agevegacom network stack (an evolution of the original Matrix design): VPC, public and private subnets, routing tables, security groups, and an EC2 key pair. The state for this module now lives in the centralized backend created by `00-terraform-state-S3`.
+Provisions the agevegacom network stack: VPC, public and private subnets, routing tables, security groups, and an EC2 key pair. The state for this module now lives in the centralized backend created by `00-terraform-state-S3`.  
+💡 The NAT Gateway resources are documented but commented out in `vpc.tf` to avoid the ~33 €/mes fixed cost; uncomment them only when the budget grows.
 
 ## Prerequisites
 - Run `terraform apply` inside `infra/terraform/00-terraform-state-S3` so the S3 bucket `terraform-state-agevegacom` and DynamoDB table `terraform-state-lock` exist.
@@ -8,7 +9,7 @@ Provisions the agevegacom network stack (an evolution of the original Matrix des
 
 ## Usage
 ```bash
-cd infra/terraform/01-matrix
+cd infra/terraform/01-networking
 terraform init    # picks up the shared S3 backend
 terraform plan
 terraform apply
