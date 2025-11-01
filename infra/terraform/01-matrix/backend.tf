@@ -1,9 +1,10 @@
 terraform {
   backend "s3" {
-    bucket         = "agevega-dev-terraform-state"
-    key            = "terraform/state/matrix/terraform.tfstate"
-    region         = "eu-west-1"
+    bucket         = "terraform-state-agevega-com"
+    key            = "envs/lab/agevega.com/terraform.tfstate"
+    region         = "eu-south-2"
+    dynamodb_table = "terraform-state-lock"
     encrypt        = true
-    dynamodb_table = "terraform-locks"
+    profile        = "terraform"
   }
 }

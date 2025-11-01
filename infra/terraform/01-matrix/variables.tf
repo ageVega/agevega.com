@@ -1,28 +1,41 @@
 variable "aws_region" {
-  description = "La región de AWS donde se desplegarán los recursos"
+  description = "AWS region where the network resources are deployed"
   type        = string
-  default     = "eu-west-1"
+  default     = "eu-south-2"
+}
+
+variable "aws_profile" {
+  description = "AWS CLI profile to use for credentials"
+  type        = string
+  default     = "terraform"
+}
+
+variable "resource_prefix" {
+  description = "Prefix used for tagging and naming AWS resources"
+  type        = string
+  default     = "agevega.com"
 }
 
 variable "vpc_cidr" {
-  description = "CIDR block for the VPC"
+  description = "CIDR block for the core VPC"
+  type        = string
   default     = "10.0.0.0/16"
 }
 
 variable "public_subnets" {
-  description = "List of public subnet CIDR blocks"
+  description = "CIDR blocks for the public subnets"
   type        = list(string)
   default     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
 }
 
 variable "private_subnets" {
-  description = "List of private subnet CIDR blocks"
+  description = "CIDR blocks for the private subnets"
   type        = list(string)
   default     = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
 }
 
 variable "availability_zones" {
-  description = "List of availability zones"
+  description = "Availability zones used to spread the subnets"
   type        = list(string)
-  default     = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+  default     = ["eu-south-2a", "eu-south-2b", "eu-south-2c"]
 }

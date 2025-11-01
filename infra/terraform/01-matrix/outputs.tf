@@ -1,5 +1,5 @@
 output "vpc_id" {
-  description = "ID de la VPC Matrix creada"
+  description = "ID de la VPC desplegada"
   value       = aws_vpc.matrix_vpc.id
 }
 
@@ -34,27 +34,27 @@ output "subnet_private_3_id" {
 }
 
 output "igw_id" {
-  description = "ID del Internet Gateway de Matrix"
+  description = "ID del Internet Gateway desplegado"
   value       = aws_internet_gateway.igw.id
 }
 
 output "public_route_table_id" {
-  description = "ID de la tabla de enrutamiento pública de Matrix"
+  description = "ID de la tabla de enrutamiento pública"
   value       = aws_route_table.public_route_table.id
 }
 
 output "private_route_table_1_id" {
-  description = "ID de la primera tabla de enrutamiento privada de Matrix"
+  description = "ID de la primera tabla de enrutamiento privada"
   value       = aws_route_table.private_route_table_1.id
 }
 
 output "private_route_table_2_id" {
-  description = "ID de la segunda tabla de enrutamiento privada de Matrix"
+  description = "ID de la segunda tabla de enrutamiento privada"
   value       = aws_route_table.private_route_table_2.id
 }
 
 output "private_route_table_3_id" {
-  description = "ID de la tercera tabla de enrutamiento privada de Matrix"
+  description = "ID de la tercera tabla de enrutamiento privada"
   value       = aws_route_table.private_route_table_3.id
 }
 
@@ -64,6 +64,6 @@ output "key_pair_name" {
 }
 
 output "security_group_id" {
-  description = "ID del grupo de seguridad Matrix-FullAccess-SG"
+  description = "ID del grupo de seguridad principal"
   value       = aws_security_group.matrix_fullaccess_sg.id
 }

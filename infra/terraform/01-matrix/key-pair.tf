@@ -4,11 +4,11 @@ resource "tls_private_key" "ec2_key_pair" {
 }
 
 resource "aws_key_pair" "matrix_key_pair" {
-  key_name   = "MatrixKeyPair"
+  key_name   = replace("${var.resource_prefix}-keypair", ".", "-")
   public_key = tls_private_key.ec2_key_pair.public_key_openssh
 
   tags = {
-    Name = "MatrixKeyPair"
+    Name = "${var.resource_prefix}-keypair"
   }
 }
 

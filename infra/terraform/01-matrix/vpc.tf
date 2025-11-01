@@ -1,70 +1,70 @@
 resource "aws_vpc" "matrix_vpc" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = var.vpc_cidr
 
   tags = {
-    Name = "Matrix VPC"
+    Name = "${var.resource_prefix}-vpc"
   }
 }
 
 # Crear 3 subredes públicas en diferentes AZs
 resource "aws_subnet" "public_subnet_1" {
   vpc_id            = aws_vpc.matrix_vpc.id
-  cidr_block        = "10.0.1.0/24"
-  availability_zone = "eu-west-1a"
-  
+  cidr_block        = var.public_subnets[0]
+  availability_zone = var.availability_zones[0]
+
   tags = {
-    Name = "Public Subnet 1"
+    Name = "${var.resource_prefix}-subnet-public1-${var.availability_zones[0]}"
   }
 }
 
 resource "aws_subnet" "public_subnet_2" {
   vpc_id            = aws_vpc.matrix_vpc.id
-  cidr_block        = "10.0.2.0/24"
-  availability_zone = "eu-west-1b"
-  
+  cidr_block        = var.public_subnets[1]
+  availability_zone = var.availability_zones[1]
+
   tags = {
-    Name = "Public Subnet 2"
+    Name = "${var.resource_prefix}-subnet-public2-${var.availability_zones[1]}"
   }
 }
 
 resource "aws_subnet" "public_subnet_3" {
   vpc_id            = aws_vpc.matrix_vpc.id
-  cidr_block        = "10.0.3.0/24"
-  availability_zone = "eu-west-1c"
-  
+  cidr_block        = var.public_subnets[2]
+  availability_zone = var.availability_zones[2]
+
   tags = {
-    Name = "Public Subnet 3"
+    Name = "${var.resource_prefix}-subnet-public3-${var.availability_zones[2]}"
   }
 }
 
 # Crear 3 subredes privadas en diferentes AZs
 resource "aws_subnet" "private_subnet_1" {
   vpc_id            = aws_vpc.matrix_vpc.id
-  cidr_block        = "10.0.4.0/24"
-  availability_zone = "eu-west-1a"
-  
+  cidr_block        = var.private_subnets[0]
+  availability_zone = var.availability_zones[0]
+
   tags = {
-    Name = "Private Subnet 1"
+    Name = "${var.resource_prefix}-subnet-private1-${var.availability_zones[0]}"
   }
 }
 
 resource "aws_subnet" "private_subnet_2" {
   vpc_id            = aws_vpc.matrix_vpc.id
-  cidr_block        = "10.0.5.0/24"
-  availability_zone = "eu-west-1b"
-  
+  cidr_block        = var.private_subnets[1]
+  availability_zone = var.availability_zones[1]
+
   tags = {
-    Name = "Private Subnet 2"
+    Name = "${var.resource_prefix}-subnet-private2-${var.availability_zones[1]}"
   }
 }
 
 resource "aws_subnet" "private_subnet_3" {
   vpc_id            = aws_vpc.matrix_vpc.id
-  cidr_block        = "10.0.6.0/24"
-  availability_zone = "eu-west-1c"
-  
+  cidr_block        = var.private_subnets[2]
+  availability_zone = var.availability_zones[2]
+
   tags = {
-    Name = "Private Subnet 3"
+    Name = "${var.resource_prefix}-subnet-private3-${var.availability_zones[2]}"
   }
 }
 
@@ -73,7 +73,7 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.matrix_vpc.id
 
   tags = {
-    Name = "Matrix Internet Gateway"
+    Name = "${var.resource_prefix}-igw"
   }
 }
 resource "aws_vpc_endpoint" "vpce_s3" {
@@ -84,9 +84,9 @@ resource "aws_vpc_endpoint" "vpce_s3" {
     aws_route_table.private_route_table_2.id,
     aws_route_table.private_route_table_3.id,
   ]
-  
+
   tags = {
-    Name = "Matrix VPC Endpoint S3"
+    Name = "${var.resource_prefix}-vpce-s3"
   }
 }
 
@@ -100,7 +100,7 @@ resource "aws_route_table" "public_route_table" {
   }
 
   tags = {
-    Name = "Public Route Table"
+    Name = "${var.resource_prefix}-rtb-public"
   }
 }
 
@@ -125,7 +125,7 @@ resource "aws_route_table" "private_route_table_1" {
   vpc_id = aws_vpc.matrix_vpc.id
 
   tags = {
-    Name = "Private Route Table 1"
+    Name = "${var.resource_prefix}-rtb-private1-${var.availability_zones[0]}"
   }
 }
 
@@ -133,7 +133,7 @@ resource "aws_route_table" "private_route_table_2" {
   vpc_id = aws_vpc.matrix_vpc.id
 
   tags = {
-    Name = "Private Route Table 2"
+    Name = "${var.resource_prefix}-rtb-private2-${var.availability_zones[1]}"
   }
 }
 
@@ -141,7 +141,7 @@ resource "aws_route_table" "private_route_table_3" {
   vpc_id = aws_vpc.matrix_vpc.id
 
   tags = {
-    Name = "Private Route Table 3"
+    Name = "${var.resource_prefix}-rtb-private3-${var.availability_zones[2]}"
   }
 }
 
