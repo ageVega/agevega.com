@@ -10,14 +10,14 @@ Este documento actúa como índice general de todas las operaciones y cambios re
 
 ```bash
 infra/
-├── changelog/              # Entradas detalladas por fecha
+├── changelog/              
 │   ├── 2025-10-18_creacion-cuenta.md
 │   └── 2025-10-18_configuracion-iam.md
 │   └── 2025-10-24_auditoria-y-configuracion-logs.md
 │   └── 2025-10-26_configuracion-terraform-state.md
-├── terraform/              # Código IaC (futuro)
+├── terraform/              
 │   ├── 00-terraform-state-S3/
-└── README.md               # Índice cronológico (este archivo)
+└── README.md               
 ```
 
 ---
@@ -52,3 +52,15 @@ infra/
 - Aplicación de política **DenyInsecureTransport** y regla de ciclo de vida con transición a **GLACIER_IR (30 d)** y **DEEP_ARCHIVE (120 d)**.  
 - Creación de la **tabla DynamoDB** `terraform-state-lock` para bloqueo de estado, con **SSE**, **PITR** y **protección contra borrado** habilitados.  
 ➡️ [Detalles](changelog/2025-10-26_configuracion-terraform-state.md)
+
+### 01/11/2025 — Despliegue de red (VPC, subredes y componentes base)
+- Despliegue del módulo `01-networking` en `infra/terraform/01-networking/`.  
+- Creación de la **VPC principal** `agevega-vpc` en `eu-south-2` (Madrid), con bloque CIDR `10.0.0.0/16`.  
+- Definición de **3 zonas de disponibilidad**: `eu-south-2a`, `eu-south-2b`, `eu-south-2c`.  
+- Creación de **3 subredes públicas**, **3 subredes privadas** y **3 subredes de bases de datos**, todas etiquetadas y distribuidas equitativamente.  
+- Habilitación de **DNS hostnames** y **DNS support** en la VPC.  
+- Creación de la **Internet Gateway** y asociación con la VPC.  
+- Creación de **tablas de rutas** separadas para subredes públicas y privadas.  
+- Configuración inicial de **NAT Gateway** en subred pública (zona `a`) con **Elastic IP asociada**.  
+- Definición de **etiquetado uniforme** (`Environment`, `Project`, `Owner`, etc.) en todos los recursos.  
+➡️ [Detalles](changelog/2025-11-01_despliegue-red-vpc.md)
