@@ -4,7 +4,7 @@ resource "tls_private_key" "lab_test_keypair" {
 }
 
 resource "aws_key_pair" "lab_test_keypair" {
-  key_name   = replace("${var.resource_prefix}-test-keypair", ".", "-")
+  key_name   = "${var.resource_prefix}-test-keypair"
   public_key = tls_private_key.lab_test_keypair.public_key_openssh
 
   tags = {

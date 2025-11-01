@@ -1,6 +1,6 @@
 resource "aws_security_group" "matrix_fullaccess_sg" {
   vpc_id = aws_vpc.matrix_vpc.id
-  name   = replace("${var.resource_prefix}-alltraffic-sg", ".", "-")
+  name   = "${var.resource_prefix}-alltraffic-sg"
 
   description = "Grupo de seguridad que permite todo el trafico de entrada y salida para pruebas"
 
