@@ -1,6 +1,6 @@
 # 01-networking
 
-Este módulo crea la infraestructura de red base para el proyecto **agevegacom**: VPC principal, subredes públicas y privadas, tablas de rutas, grupos de seguridad y par de claves EC2.  
+Este módulo crea la infraestructura de red base para el proyecto **agevegacom**: VPC principal, subredes públicas, privadas y de bases de datos, tablas de rutas, grupos de seguridad y par de claves EC2.  
 El estado remoto se almacena en el backend centralizado creado por `00-terraform-state-S3`.
 
 > 💡 **NAT Gateway pospuesto:** los recursos están documentados pero comentados en `vpc.tf` para evitar el coste fijo (~33 €/mes). Descoméntalos cuando el presupuesto lo permita.
@@ -49,7 +49,7 @@ Modifica la clave si necesitas aislar otros entornos (por ejemplo, `envs/pre` o 
 - **Perfil AWS CLI:** `terraform`
 - **Prefijo de recursos:** `agevegacom`
 - **CIDR VPC:** `10.0.0.0/16`
-- **Subredes públicas/privadas:** distribuidas en `eu-south-2a`, `eu-south-2b`, `eu-south-2c`
+- **Subredes públicas/privadas/DB:** distribuidas en `eu-south-2a`, `eu-south-2b`, `eu-south-2c`
 - **NAT Gateway:** comentado por defecto (evita costes hasta que sea necesario)
 
 ---
@@ -62,6 +62,7 @@ Modifica la clave si necesitas aislar otros entornos (por ejemplo, `envs/pre` o 
 - `vpc_cidr` – CIDR principal de la VPC (defecto `10.0.0.0/16`)
 - `public_subnets` – Lista de subredes públicas
 - `private_subnets` – Lista de subredes privadas
+- `db_subnets` – Lista de subredes específicas para bases de datos (sin salida a Internet)
 - `availability_zones` – Zonas de disponibilidad usadas (`eu-south-2a/b/c`)
 
 ---

@@ -33,6 +33,21 @@ output "subnet_private_3_id" {
   value       = aws_subnet.private_subnet_3.id
 }
 
+output "subnet_db_1_id" {
+  description = "ID de la primera subred de bases de datos"
+  value       = aws_subnet.db_subnet_1.id
+}
+
+output "subnet_db_2_id" {
+  description = "ID de la segunda subred de bases de datos"
+  value       = aws_subnet.db_subnet_2.id
+}
+
+output "subnet_db_3_id" {
+  description = "ID de la tercera subred de bases de datos"
+  value       = aws_subnet.db_subnet_3.id
+}
+
 output "igw_id" {
   description = "ID del Internet Gateway desplegado"
   value       = aws_internet_gateway.igw.id
@@ -56,6 +71,21 @@ output "private_route_table_2_id" {
 output "private_route_table_3_id" {
   description = "ID de la tercera tabla de enrutamiento privada"
   value       = aws_route_table.private_route_table_3.id
+}
+
+output "db_route_table_1_id" {
+  description = "ID de la primera tabla de enrutamiento para bases de datos"
+  value       = aws_route_table.db_route_table_1.id
+}
+
+output "db_route_table_2_id" {
+  description = "ID de la segunda tabla de enrutamiento para bases de datos"
+  value       = aws_route_table.db_route_table_2.id
+}
+
+output "db_route_table_3_id" {
+  description = "ID de la tercera tabla de enrutamiento para bases de datos"
+  value       = aws_route_table.db_route_table_3.id
 }
 
 output "key_pair_name" {

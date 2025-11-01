@@ -2,7 +2,7 @@
 
 ### 🗂️ Descripción
 Despliegue del módulo `01-networking` en `infra/terraform/01-networking/`, encargado de crear la red base del entorno **agevegacom** en AWS.  
-Incluye la VPC principal, subredes públicas y privadas, así como los elementos necesarios para la conectividad (Internet Gateway, tablas de rutas y etiquetado coherente).  
+Incluye la VPC principal, subredes públicas, privadas y de bases de datos, así como los elementos necesarios para la conectividad (Internet Gateway, tablas de rutas y etiquetado coherente).  
 ⚠️ **NAT Gateway pospuesto:** se documenta pero no se despliega para mantener el presupuesto mensual dentro de 5–10 €.
 
 ---
@@ -22,18 +22,19 @@ Incluye la VPC principal, subredes públicas y privadas, así como los elementos
 ## 🧩 Subredes
 
 ### ⚙️ Acciones realizadas
-- Definidas **6 subredes** distribuidas en **3 zonas de disponibilidad** (`eu-south-2a`, `eu-south-2b`, `eu-south-2c`):  
+- Definidas **9 subredes** distribuidas en **3 zonas de disponibilidad** (`eu-south-2a`, `eu-south-2b`, `eu-south-2c`):  
   - **3 subredes públicas** → acceso directo a Internet mediante Internet Gateway.  
   - **3 subredes privadas** → sin salida a Internet (pendiente de NAT Gateway cuando el presupuesto lo permita).  
+  - **3 subredes de bases de datos** → tráfico interno únicamente; sin rutas a Internet.
 - Bloques CIDR asignados de forma equitativa dentro del rango `10.0.0.0/16`.  
 - Asociadas las subredes públicas y privadas a sus respectivas tablas de rutas.  
 - Nomenclatura uniforme:  
 
 
 ```
-public-a / private-a
-public-b / private-b
-public-c / private-c
+public-a / private-a / db-a
+public-b / private-b / db-b
+public-c / private-c / db-c
 ```
 
 ---
@@ -52,7 +53,8 @@ public-c / private-c
 
 ### ⚙️ Acciones realizadas
 - Creada **tabla de rutas pública** con destino `0.0.0.0/0` hacia `agevegacom-igw`.  
-- Creada **tabla de rutas privada** con rutas internas únicamente (sin salida a Internet de momento).  
+- Creadas **tablas de rutas privadas** (una por AZ) con rutas internas únicamente (sin salida a Internet de momento).  
+- Creadas **tablas de rutas de bases de datos** separadas, sin rutas hacia Internet para mantener el aislamiento.
 - Asociadas las subredes correspondientes según su tipo.  
 - Confirmada propagación correcta de rutas y conectividad interna.
 

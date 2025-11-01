@@ -58,10 +58,10 @@ infra/
 - Despliegue del módulo `01-networking` en `infra/terraform/01-networking/`.  
 - Creación de la **VPC principal** `agevegacom-vpc` en `eu-south-2` (Madrid), con bloque CIDR `10.0.0.0/16`.  
 - Definición de **3 zonas de disponibilidad**: `eu-south-2a`, `eu-south-2b`, `eu-south-2c`.  
-- Creación de **3 subredes públicas** y **3 subredes privadas**, todas etiquetadas y distribuidas equitativamente.  
+- Creación de **3 subredes públicas**, **3 subredes privadas** y **3 subredes de bases de datos**, todas etiquetadas y distribuidas equitativamente.  
 - Habilitación de **DNS hostnames** y **DNS support** en la VPC.  
 - Creación de la **Internet Gateway** y asociación con la VPC.  
-- Creación de **tablas de rutas** separadas para subredes públicas y privadas.  
+- Creación de **tablas de rutas** separadas para subredes públicas, privadas y de bases de datos.  
 - Se documenta NAT Gateway como mejora futura (no desplegado para mantener el presupuesto 5–10 €).  
 - Definición de **etiquetado uniforme** (`Environment`, `Project`, `Owner`, etc.) en todos los recursos.  
 ➡️ [Detalles](changelog/2025-11-01_despliegue-red-vpc.md)
