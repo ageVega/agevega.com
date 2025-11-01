@@ -95,5 +95,5 @@ output "key_pair_name" {
 
 output "security_group_id" {
   description = "ID del grupo de seguridad principal"
-  value       = aws_security_group.matrix_fullaccess_sg.id
+  value       = aws_security_group.test_alltraffic_sg.id
 }

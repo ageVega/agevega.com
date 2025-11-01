@@ -9,7 +9,7 @@ resource "aws_key_pair" "lab_test_keypair" {
 
   tags = {
     Name  = "${var.resource_prefix}-test-keypair"
-    Usage = "lab-testing"
+    Usage = "test-default"
   }
 }
 

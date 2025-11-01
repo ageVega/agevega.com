@@ -1,6 +1,6 @@
-resource "aws_security_group" "matrix_fullaccess_sg" {
+resource "aws_security_group" "test_alltraffic_sg" {
   vpc_id = aws_vpc.matrix_vpc.id
-  name   = "${var.resource_prefix}-alltraffic-sg"
+  name   = "${var.resource_prefix}-test-alltraffic-sg"
 
   description = "Grupo de seguridad que permite todo el trafico de entrada y salida para pruebas"
 
@@ -21,6 +21,7 @@ resource "aws_security_group" "matrix_fullaccess_sg" {
   }
 
   tags = {
-    Name = "${var.resource_prefix}-sg"
+    Name  = "${var.resource_prefix}-test-alltraffic-sg"
+    Usage = "test-default"
   }
 }
