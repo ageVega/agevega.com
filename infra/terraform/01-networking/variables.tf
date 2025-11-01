@@ -16,6 +16,17 @@ variable "resource_prefix" {
   default     = "agevegacom"
 }
 
+variable "common_tags" {
+  description = "Standard tags applied to every resource"
+  type        = map(string)
+  default = {
+    Project     = "agevegacom"
+    Owner       = "Alejandro Vega"
+    Environment = "lab"
+    IaC         = "Terraform"
+  }
+}
+
 variable "vpc_cidr" {
   description = "CIDR block for the core VPC"
   type        = string

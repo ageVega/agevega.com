@@ -20,8 +20,11 @@ resource "aws_security_group" "test_alltraffic_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name  = "${var.resource_prefix}-test-alltraffic-sg"
-    Usage = "test-default"
-  }
+  tags = merge(
+    var.common_tags,
+    {
+      Name  = "${var.resource_prefix}-test-alltraffic-sg"
+      Usage = "test-default"
+    },
+  )
 }

@@ -59,13 +59,15 @@ Modifica la clave si necesitas aislar otros entornos (por ejemplo, `envs/pre` o 
 - `aws_region` – Región de despliegue (defecto `eu-south-2`)
 - `aws_profile` – Perfil de credenciales CLI (defecto `terraform`)
 - `resource_prefix` – Prefijo para nombres/etiquetas (defecto `agevegacom`)
+- `common_tags` – Mapa de etiquetas estándar aplicadas a todos los recursos (`Project`, `Owner`, `Environment`, `IaC`)
 - `vpc_cidr` – CIDR principal de la VPC (defecto `10.0.0.0/16`)
 - `public_subnets` – Lista de subredes públicas
 - `private_subnets` – Lista de subredes privadas
 - `db_subnets` – Lista de subredes específicas para bases de datos (sin salida a Internet)
+- `availability_zones` – Zonas de disponibilidad usadas (`eu-south-2a/b/c`)
 
 El módulo también genera un par de claves RSA de prueba (`${var.resource_prefix}-test-keypair`) y un security group de pruebas (`${var.resource_prefix}-test-alltraffic-sg`) para acceder por SSH a los recursos del entorno.
-- `availability_zones` – Zonas de disponibilidad usadas (`eu-south-2a/b/c`)
+
 
 ---
 

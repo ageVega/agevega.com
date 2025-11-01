@@ -7,10 +7,13 @@ resource "aws_key_pair" "test_keypair" {
   key_name   = "${var.resource_prefix}-test-keypair"
   public_key = tls_private_key.test_keypair.public_key_openssh
 
-  tags = {
-    Name  = "${var.resource_prefix}-test-keypair"
-    Usage = "test-default"
-  }
+  tags = merge(
+    var.common_tags,
+    {
+      Name  = "${var.resource_prefix}-test-keypair"
+      Usage = "test-default"
+    },
+  )
 }
 
 output "private_key" {
