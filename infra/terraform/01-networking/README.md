@@ -1,6 +1,6 @@
 # 01-networking
 
-Este módulo crea la infraestructura de red base para el proyecto **agevegacom**: VPC principal, subredes públicas, privadas y de bases de datos, tablas de rutas, grupos de seguridad y par de claves EC2.  
+Este módulo crea la infraestructura de red base para el proyecto **agevegacom**: VPC principal, subredes públicas, privadas y de bases de datos, tablas de rutas, grupos de seguridad y registra un par de claves EC2 existente.  
 El estado remoto se almacena en el backend centralizado creado por `00-terraform-state-S3`.
 
 > 💡 **NAT Gateway pospuesto:** los recursos están documentados pero comentados en `vpc.tf` para evitar el coste fijo (~33 €/mes). Descoméntalos cuando el presupuesto lo permita.
@@ -28,6 +28,14 @@ terraform apply
 2. Ese módulo crea:
    - Bucket S3 `terraform-state-agevegacom` (estado remoto)
    - Tabla DynamoDB `terraform-state-lock` (bloqueo de estado)
+
+3. Proporciona la clave pública OpenSSH que hayas generado previamente (por ejemplo con `ssh-keygen -t rsa -b 4096 -f ~/.ssh/ssh_key_agevega.pub`). Puedes hacerlo creando un `terraform.tfvars`:
+
+```hcl
+test_keypair_public_key = file("~/.ssh/ssh_key_agevega.pub")
+```
+
+> ⚠️ Terraform no expande `~`; usa una ruta absoluta o un `file()` como en el ejemplo.
 
 ---
 
@@ -59,6 +67,7 @@ Modifica la clave si necesitas aislar otros entornos (por ejemplo, `envs/pre` o 
 - `aws_region` – Región de despliegue (defecto `eu-south-2`)
 - `aws_profile` – Perfil de credenciales CLI (defecto `terraform`)
 - `resource_prefix` – Prefijo para nombres/etiquetas (defecto `agevegacom`)
+- `test_keypair_public_key` – Contenido de la clave pública (formato OpenSSH) que se registrará en AWS
 - `common_tags` – Mapa de etiquetas estándar aplicadas a todos los recursos (`Project`, `Owner`, `Environment`, `IaC`)
 - `vpc_cidr` – CIDR principal de la VPC (defecto `10.0.0.0/16`)
 - `public_subnets` – Lista de subredes públicas
@@ -66,7 +75,7 @@ Modifica la clave si necesitas aislar otros entornos (por ejemplo, `envs/pre` o 
 - `db_subnets` – Lista de subredes específicas para bases de datos (sin salida a Internet)
 - `availability_zones` – Zonas de disponibilidad usadas (`eu-south-2a/b/c`)
 
-El módulo también genera un par de claves RSA de prueba (`${var.resource_prefix}-test-keypair`) y un security group de pruebas (`${var.resource_prefix}-test-alltraffic-sg`) para acceder por SSH a los recursos del entorno.
+El módulo registra en AWS la clave pública proporcionada (`${var.resource_prefix}-test-keypair`) y crea un security group de pruebas (`${var.resource_prefix}-test-alltraffic-sg`) para acceder por SSH a los recursos del entorno.
 
 
 ---

@@ -1,11 +1,6 @@
-resource "tls_private_key" "test_keypair" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
-}
-
 resource "aws_key_pair" "test_keypair" {
   key_name   = "${var.resource_prefix}-test-keypair"
-  public_key = tls_private_key.test_keypair.public_key_openssh
+  public_key = var.test_keypair_public_key
 
   tags = merge(
     var.common_tags,
@@ -14,10 +9,4 @@ resource "aws_key_pair" "test_keypair" {
       Usage = "test-default"
     },
   )
-}
-
-output "private_key" {
-  description = "Private key to use for SSH access (test keypair)"
-  value       = tls_private_key.test_keypair.private_key_pem
-  sensitive   = true
 }
