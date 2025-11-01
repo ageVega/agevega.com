@@ -1,0 +1,69 @@
+output "vpc_id" {
+  description = "ID de la VPC Matrix creada"
+  value       = aws_vpc.matrix_vpc.id
+}
+
+output "subnet_public_1_id" {
+  description = "ID de la primera subred pública"
+  value       = aws_subnet.public_subnet_1.id
+}
+
+output "subnet_public_2_id" {
+  description = "ID de la segunda subred pública"
+  value       = aws_subnet.public_subnet_2.id
+}
+
+output "subnet_public_3_id" {
+  description = "ID de la tercera subred pública"
+  value       = aws_subnet.public_subnet_3.id
+}
+
+output "subnet_private_1_id" {
+  description = "ID de la primera subred privada"
+  value       = aws_subnet.private_subnet_1.id
+}
+
+output "subnet_private_2_id" {
+  description = "ID de la segunda subred privada"
+  value       = aws_subnet.private_subnet_2.id
+}
+
+output "subnet_private_3_id" {
+  description = "ID de la tercera subred privada"
+  value       = aws_subnet.private_subnet_3.id
+}
+
+output "igw_id" {
+  description = "ID del Internet Gateway de Matrix"
+  value       = aws_internet_gateway.igw.id
+}
+
+output "public_route_table_id" {
+  description = "ID de la tabla de enrutamiento pública de Matrix"
+  value       = aws_route_table.public_route_table.id
+}
+
+output "private_route_table_1_id" {
+  description = "ID de la primera tabla de enrutamiento privada de Matrix"
+  value       = aws_route_table.private_route_table_1.id
+}
+
+output "private_route_table_2_id" {
+  description = "ID de la segunda tabla de enrutamiento privada de Matrix"
+  value       = aws_route_table.private_route_table_2.id
+}
+
+output "private_route_table_3_id" {
+  description = "ID de la tercera tabla de enrutamiento privada de Matrix"
+  value       = aws_route_table.private_route_table_3.id
+}
+
+output "key_pair_name" {
+  description = "Nombre del par de claves para SSH"
+  value       = aws_key_pair.matrix_key_pair.key_name
+}
+
+output "security_group_id" {
+  description = "ID del grupo de seguridad Matrix-FullAccess-SG"
+  value       = aws_security_group.matrix_fullaccess_sg.id
+}
