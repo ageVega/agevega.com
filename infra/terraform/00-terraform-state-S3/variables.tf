@@ -10,6 +10,17 @@ variable "aws_profile" {
   default     = "terraform"
 }
 
+variable "resource_prefix" {
+  description = "Prefix used in names/tags for backend resources"
+  type        = string
+  default     = "agevegacom"
+}
+
+variable "test_keypair_public_key" {
+  description = "OpenSSH public key material to register as the shared test key pair"
+  type        = string
+}
+
 variable "state_bucket_name" {
   description = "Nombre globalmente único del bucket S3 para el estado de Terraform"
   type        = string

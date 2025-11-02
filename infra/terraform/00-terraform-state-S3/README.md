@@ -12,6 +12,8 @@ terraform plan
 terraform apply
 ```
 
+El archivo `terraform.tfvars` incluido en esta carpeta carga automáticamente la clave pública (`/home/agevegacom/.ssh/ssh_key_agevegacom.pub`). Ajusta esa ruta si tu fichero `.pub` está en otra ubicación.
+
 ---
 
 ## ⚙️ Valores por defecto
