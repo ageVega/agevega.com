@@ -18,6 +18,7 @@ infra/
 │   └── 2025-11-01_despliegue-red-vpc.md
 ├── terraform/              
 │   ├── 00-terraform-state-S3/
+│   ├── 01-networking/
 └── README.md               
 ```
 
