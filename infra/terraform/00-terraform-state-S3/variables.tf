@@ -17,7 +17,7 @@ variable "resource_prefix" {
 }
 
 variable "test_keypair_public_key" {
-  description = "OpenSSH public key material to register as the shared test key pair"
+  description = "Ruta al archivo .pub del keypair de pruebas"
   type        = string
 }
 
