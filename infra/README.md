@@ -52,6 +52,7 @@ infra/
 - Activación de **versionado**, **cifrado SSE-AES256**, **bloqueo de acceso público** y **propiedad forzada al propietario**.  
 - Aplicación de política **DenyInsecureTransport** y regla de ciclo de vida con transición a **GLACIER_IR (30 d)** y **DEEP_ARCHIVE (120 d)**.  
 - Creación de la **tabla DynamoDB** `terraform-state-lock` para bloqueo de estado, con **SSE**, **PITR** y **protección contra borrado** habilitados.  
+- Registro del par de claves de pruebas `${var.resource_prefix}-test-keypair`
 ➡️ [Detalles](changelog/2025-10-26_configuracion-terraform-state.md)
 
 ### 01/11/2025 — Despliegue de red (VPC, subredes y componentes base)
